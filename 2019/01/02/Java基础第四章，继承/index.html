@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java,毕向东,">
+  <meta name="keywords" content="Java,毕向东,面向对象,">
 
 
 
@@ -79,24 +79,24 @@
 
 
 
-<meta name="description" content="原创，转载请注明出处 概述引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。 通过 extends 关键字让类与类之间产生继承关系。继承的出现提高了代码的复用性，让类与类之间产生了关系，提供了多态的前提 class SubDemo extends Demo{} 特点什么时候使用继承？  不要仅为了获取其他类中某个功能而去继">
-<meta name="keywords" content="Java,毕向东">
+<meta name="description" content="原创，转载请注明出处 概述引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。">
+<meta name="keywords" content="Java,毕向东,面向对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础第四章 继承">
 <meta property="og:url" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/index.html">
 <meta property="og:site_name" content="米轻轻&#39;blog">
-<meta property="og:description" content="原创，转载请注明出处 概述引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。 通过 extends 关键字让类与类之间产生继承关系。继承的出现提高了代码的复用性，让类与类之间产生了关系，提供了多态的前提 class SubDemo extends Demo{} 特点什么时候使用继承？  不要仅为了获取其他类中某个功能而去继">
+<meta property="og:description" content="原创，转载请注明出处 概述引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4子父类含有同名成员变量.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4没有抽象方法的抽象类.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4抽象方法练习题目.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4抽象方法练习代码.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4抽象类和接口的区别.jpg">
-<meta property="og:updated_time" content="2019-05-28T12:46:45.418Z">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4子父类含有同名成员变量.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4没有抽象方法的抽象类.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4抽象方法练习题目.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4抽象方法练习代码.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4抽象类和接口的区别.png">
+<meta property="og:updated_time" content="2019-05-28T13:33:00.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础第四章 继承">
-<meta name="twitter:description" content="原创，转载请注明出处 概述引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。 通过 extends 关键字让类与类之间产生继承关系。继承的出现提高了代码的复用性，让类与类之间产生了关系，提供了多态的前提 class SubDemo extends Demo{} 特点什么时候使用继承？  不要仅为了获取其他类中某个功能而去继">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4子父类含有同名成员变量.jpg">
+<meta name="twitter:description" content="原创，转载请注明出处 概述引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/02/Java基础第四章，继承/4子父类含有同名成员变量.png">
 
 
 
@@ -360,6 +360,7 @@
       
         <p>原创，转载请注明出处</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。</p>
+<a id="more"></a>
 <p>通过 extends 关键字让类与类之间产生继承关系。继承的出现提高了代码的复用性，让类与类之间产生了关系，提供了多态的前提</p>
 <pre><code>class SubDemo extends Demo{}
 </code></pre><h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><p>什么时候使用继承？</p>
@@ -374,7 +375,7 @@ class C extends B{}；
 </code></pre><p>学习继承体系时，应该参阅顶层的类中的内容，了解这个体系的基本功能。使用这个体系功能时，需要创建最子类的对象</p>
 <h1 id="子父类成员特点"><a href="#子父类成员特点" class="headerlink" title="子父类成员特点"></a>子父类成员特点</h1><h2 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h2><p>子类不能直接访问父类中的私有的属性和行为，但是继承了，在子类对象的堆内存中是有父类的私有内容的</p>
 <p>子父类定义了同名的成员变量num，都存在于子类的对象的堆内存中。子类对象直接访问num，则相当于this.num,访问的是子类的变量。想要访问父类的变量，用super.num。</p>
-<p><img src="/2019/01/02/Java基础第四章，继承/4子父类含有同名成员变量.jpg" alt></p>
+<p><img src="/2019/01/02/Java基础第四章，继承/4子父类含有同名成员变量.png" alt></p>
 <h2 id="成员函数"><a href="#成员函数" class="headerlink" title="成员函数"></a>成员函数</h2><p>子父类中定义的同名的成员函数show()，调用时调用的是子类的函数。称为函数的override（重写，重载）</p>
 <h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>当子父类都有构造函数时，先执行父构造函数，再执行子构造函数。因为子类所有的构造函数的第一行都有一句隐式的super();，所以子类中所有的构造函数默认都会访问父类中空参数的构造函数</p>
 <p>当父类中没有空参数的构造函数时，子类的构造函数必须通过显式的super或this语句指定要访问的的构造函数</p>
@@ -431,14 +432,14 @@ class C extends B{}；
 </ul>
 </li>
 </ul>
-<p><img src="/2019/01/02/Java基础第四章，继承/4没有抽象方法的抽象类.jpg" alt="没有抽象方法的抽象类"></p>
+<p><img src="/2019/01/02/Java基础第四章，继承/4没有抽象方法的抽象类.png" alt="没有抽象方法的抽象类"></p>
 <h2 id="抽象类和一般类的异同点"><a href="#抽象类和一般类的异同点" class="headerlink" title="抽象类和一般类的异同点"></a>抽象类和一般类的异同点</h2><p>相同：都是用来描述事物；都可以定义属性和行为，包括构造函数<br>不同</p>
 <ul>
 <li>一般类可以具体的描述事物，抽象类描述事物不具体</li>
 <li>抽象类看可以多定义一种成员：抽象函数</li>
 <li>一般类可以创建对象，但是抽象类不能创建对象</li>
 </ul>
-<p><img src="/2019/01/02/Java基础第四章，继承/4抽象方法练习题目.jpg" alt><br><img src="/2019/01/02/Java基础第四章，继承/4抽象方法练习代码.jpg" alt></p>
+<p><img src="/2019/01/02/Java基础第四章，继承/4抽象方法练习题目.png" alt><br><img src="/2019/01/02/Java基础第四章，继承/4抽象方法练习代码.png" alt></p>
 <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>当抽象类中的方法全是抽象的，可以通过接口的形式来体现。接口就是定义功能的，但是不定义功能体。谁需要这个功能谁去实现（个人理解，接口像是声明，声明这个类中应该有什么函数，但是并没有函数主体）</p>
 <pre><code>Interface Demo{ }//定义一个名为Demo的接口 
 </code></pre><h2 id="定义格式"><a href="#定义格式" class="headerlink" title="定义格式"></a>定义格式</h2><ul>
@@ -477,7 +478,7 @@ class Zi extends Fu implements Inter{
     public void show1() {}        //一定要写public    
 }
 </code></pre><p>抽象类中定义的都是事物的基本功能，接口中定义的都是事物的扩展功能。</p>
-<p><img src="/2019/01/02/Java基础第四章，继承/4抽象类和接口的区别.jpg" alt></p>
+<p><img src="/2019/01/02/Java基础第四章，继承/4抽象类和接口的区别.png" alt></p>
 <h2 id="接口出现后的一些小细节"><a href="#接口出现后的一些小细节" class="headerlink" title="接口出现后的一些小细节"></a>接口出现后的一些小细节</h2><p>类与类的关系是继承（is a），类与接口之间的关系是实现（like a）【inplements】</p>
 <p>接口与接口之间是继承关系，而且可以多继承（用的不多）。代码：</p>
 <pre><code>interface Inter1{    
@@ -523,6 +524,8 @@ class Demo implements Inter3{
           
             <a href="/tags/毕向东/" rel="tag"># 毕向东</a>
           
+            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
+          
         </div>
       
 
@@ -544,7 +547,7 @@ class Demo implements Inter3{
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/04/Java基础第五章，多态/" rel="prev" title="Java基础第五章，多态">
+              <a href="/2019/01/05/Java基础第五章，多态/" rel="prev" title="Java基础第五章，多态">
                 Java基础第五章，多态 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -625,7 +628,7 @@ class Demo implements Inter3{
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -647,7 +650,7 @@ class Demo implements Inter3{
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -498,14 +498,8 @@
 
       
         
-          
-          Java 并发一、线程状态转换  
-新建（New）创建后尚未启动。
-可运行（Runnable）可能正在运行，也可能正在等待 CPU 时间片。
-包含了操作系统线程状态中的 Running 和 Ready。
-阻塞（Blocked）等待获取一个排它锁，如果其线程释放了锁就会结束此状态。
-无限期等待（Wai
-          ...
+          <h2 id="Java-并发"><a href="#Java-并发" class="headerlink" title="Java 并发"></a>Java 并发</h2><h3 id="一、线程状态转换"><a href="#一、线程状态转换" class="headerlink" title="一、线程状态转换"></a>一、线程状态转换</h3><p><div align="center"> <img src="/2019/02/28/java多线程/pics/adfb427d-3b21-40d7-a142-757f4ed73079.png" width="600px"> </div><br></p>
+<h4 id="新建（New）"><a href="#新建（New）" class="headerlink" title="新建（New）"></a>新建（New）</h4><p>创建后尚未启动。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/28/java多线程/#more" rel="contents">
@@ -559,7 +553,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/04/Java基础第五章，多态/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/Java基础第六章，内部类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄敏">
@@ -578,7 +572,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/04/Java基础第五章，多态/" itemprop="url">Java基础第五章，多态</a></h1>
+                <a class="post-title-link" href="/2019/01/08/Java基础第六章，内部类/" itemprop="url">Java基础第六章，内部类</a></h1>
         
 
         <div class="post-meta">
@@ -590,8 +584,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-04T20:45:52+08:00">
-                2019-01-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-08T21:21:21+08:00">
+                2019-01-08
               </time>
             
 
@@ -653,12 +647,163 @@
         
           
           原创，转载请注明出处
-
-
-          
+内部类引出：当A类中的内容要被B类直接访问，而A类也需要创建B的对象，访问B的内容时，可以将B类定义到A类的内部。这样访问更为便捷。B就叫做内部类（内置类，嵌套类）
+定义：将一个类定义在另一个类的里面，对里面那个类就称为内部类（内置类，嵌套类）。
+内部类或内部接口的名字中都带点
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/04/Java基础第五章，多态/#more" rel="contents">
+            <a class="btn" href="/2019/01/08/Java基础第六章，内部类/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/05/Java基础第五章，多态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄敏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米轻轻'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/05/Java基础第五章，多态/" itemprop="url">Java基础第五章，多态</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-05T20:45:52+08:00">
+                2019-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>原创，转载请注明出处</p>
+<h1 id="体现-amp-好处-amp-弊端-amp-前提"><a href="#体现-amp-好处-amp-弊端-amp-前提" class="headerlink" title="体现&amp;好处&amp;弊端&amp;前提"></a>体现&amp;好处&amp;弊端&amp;前提</h1><p>体现：父类的引用或者接口的引用指向了自己的子类</p>
+<pre><code>Dog dog = new Dog();        //dog对象的类型是Dog类型 
+Animal dog1 = new Dog();    //dog1对象的类型是Animal类型
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/05/Java基础第五章，多态/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -801,12 +946,8 @@
 
       
         
-          
-          原创，转载请注明出处
-概述引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。
-通过 extends 关键字让类与类之间产生继承关系。继承的出现提高了代码的复用性，让类与类之间产生了关系，提供了多态的前提
-class SubD
-          ...
+          <p>原创，转载请注明出处</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>引出：多个类中存在相同属性和行为时，将这些共性的内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继那个类即可。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/01/02/Java基础第四章，继承/#more" rel="contents">
@@ -952,16 +1093,11 @@ class SubD
 
       
         
-          
-          原创，转载请注明出处
-面向对象概念理解面向对象
-面向过程：强调的是功能行为，不断地使用函数，C语言
-面向对象：将功能封装进对象，只要找到了对象，就可以使用对象中的功能
-
-面向对象的特点
-面向过程体现的是执行者，而面向对象体现的是指挥者（指挥对象做事情）
-面向对象是一种更符合人们思考习惯的思想，可以将
-          ...
+          <p>原创，转载请注明出处</p>
+<h1 id="面向对象概念"><a href="#面向对象概念" class="headerlink" title="面向对象概念"></a>面向对象概念</h1><h2 id="理解面向对象"><a href="#理解面向对象" class="headerlink" title="理解面向对象"></a>理解面向对象</h2><ul>
+<li>面向过程：强调的是功能行为，不断地使用函数，C语言</li>
+<li>面向对象：将功能封装进对象，只要找到了对象，就可以使用对象中的功能</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/29/Java基础第三章，面向对象/#more" rel="contents">
@@ -1107,18 +1243,9 @@ class SubD
 
       
         
-          
-          原创，转载请注明出处
-关键字定义：被Java语言赋予了特殊含义的单词
-特点：关键字中所有字母都小写
-
-标识符定义：在程序中自定义的一些名称
-组成：26个英文字母（区分大小写）、0-9数字、_和$，其中数字不能开头，且不能使用关键字
-规范：
-
-包名：所有字母都小写。xxxyyyzzz
-类名接口名：多单
-          ...
+          <p>原创，转载请注明出处</p>
+<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><p>定义：被Java语言赋予了特殊含义的单词</p>
+<p>特点：关键字中所有字母都小写</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/27/Java基础第二章，java语言基础/#more" rel="contents">
@@ -1264,22 +1391,12 @@ class SubD
 
       
         
-          
-          原创，转载请注明出处
-基本常识软件开发软件：计算机数据和指令的集合
-
-系统软件：DOS, Windows, IOS
-应用软件：QQ
-
-开发：制作软件
-人机交互方式：软件的出现实现了人与计算机更好的交互
-图形化界面交互
-
-命令行方式交互
-
-dir：列出当前目录下的文件及文件夹
-md/rd：创建/删除目
-          ...
+          <p>原创，转载请注明出处</p>
+<h2 id="基本常识"><a href="#基本常识" class="headerlink" title="基本常识"></a>基本常识</h2><h3 id="软件开发"><a href="#软件开发" class="headerlink" title="软件开发"></a>软件开发</h3><p>软件：计算机数据和指令的集合</p>
+<ul>
+<li>系统软件：DOS, Windows, IOS</li>
+<li>应用软件：QQ</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/12/26/Java基础第一章，Java概述/#more" rel="contents">
@@ -1425,11 +1542,8 @@ md/rd：创建/删除目
 
       
         
-          
-          原创，转载请注明出处
-latex中如何输入下划线默认情况下，latex会将下划线 “_“ 解释为数学模式中的下标表示的一部分，这种处理很多情况下是非常不爽的，比如代码中的下划线变量：host_name之类的。虽然可以用“host_name”之类的方法解决，但不易读。 
-LaTeX中插入Visio图片
-          ...
+          <p>原创，转载请注明出处</p>
+<h2 id="latex中如何输入下划线"><a href="#latex中如何输入下划线" class="headerlink" title="latex中如何输入下划线"></a>latex中如何输入下划线</h2><p>默认情况下，latex会将下划线 “_“ 解释为数学模式中的下标表示的一部分，这种处理很多情况下是非常不爽的，比如代码中的下划线变量：<br>host_name之类的。虽然可以用“host_name”之类的方法解决，但不易读。 </p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/03/Letex基础用法/#more" rel="contents">
@@ -1575,11 +1689,8 @@ LaTeX中插入Visio图片
 
       
         
-          
-          classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用；
-memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象； 
-localva
-          ...
+          <p>classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用；</p>
+<p>memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象； </p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/08/类变量、成员变量和成员函数的局部变量使用/#more" rel="contents">
@@ -1620,159 +1731,13 @@ localva
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/SQL相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="黄敏">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="米轻轻'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/01/SQL相关/" itemprop="url">SQL学习总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T09:43:11+08:00">
-                2018-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          放在最前面的常用语法——增删改查SELECT column_name,column_name FROM table_name WHERE id = 1;
-SELECT column_name,column_name FROM table_name WHERE id in (1，2);
-SELECT 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/SQL相关/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1818,7 +1783,7 @@ SELECT
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1840,7 +1805,7 @@ SELECT
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
