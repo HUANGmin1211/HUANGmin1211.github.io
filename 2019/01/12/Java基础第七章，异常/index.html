@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,毕向东,面向对象,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原创，转载请注明出处 异常和错误异常：Expection，通常发生可以有针对性的处理方式的。 int [] a = new int [3];  System.out.println(a[4]); 错误：Error，通常发生后不会有针对性的处理方式。        int [] a = new int [10241024100]; //jvm的堆内存不够了 Error的发生往往都是系统级别的问题，都">
+<meta name="keywords" content="Java,毕向东,面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础第七章，异常">
+<meta property="og:url" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/index.html">
+<meta property="og:site_name" content="米轻轻&#39;blog">
+<meta property="og:description" content="原创，转载请注明出处 异常和错误异常：Expection，通常发生可以有针对性的处理方式的。 int [] a = new int [3];  System.out.println(a[4]); 错误：Error，通常发生后不会有针对性的处理方式。        int [] a = new int [10241024100]; //jvm的堆内存不够了 Error的发生往往都是系统级别的问题，都">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7异常发生过程.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7异常应用_常见异常.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7自定义异常.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7自定义运行时异常.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7声明.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7捕获.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7父类不抛异常，子类的异常只能转换成RuntimeException.png">
+<meta property="og:updated_time" content="2019-05-28T14:57:27.947Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基础第七章，异常">
+<meta name="twitter:description" content="原创，转载请注明出处 异常和错误异常：Expection，通常发生可以有针对性的处理方式的。 int [] a = new int [3];  System.out.println(a[4]); 错误：Error，通常发生后不会有针对性的处理方式。        int [] a = new int [10241024100]; //jvm的堆内存不够了 Error的发生往往都是系统级别的问题，都">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/12/Java基础第七章，异常/7异常发生过程.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/12/Java基础第七章，异常/">
+
+
+
+
+
+  <title>Java基础第七章，异常 | 米轻轻'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">米轻轻'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/Java基础第七章，异常/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄敏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米轻轻'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java基础第七章，异常</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-12T22:29:21+08:00">
+                2019-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原创，转载请注明出处</p>
+<h1 id="异常和错误"><a href="#异常和错误" class="headerlink" title="异常和错误"></a>异常和错误</h1><p>异常：Expection，通常发生可以有针对性的处理方式的。</p>
+<pre><code>int [] a = new int [3]; 
+System.out.println(a[4]);
+</code></pre><p>错误：Error，通常发生后不会有针对性的处理方式。<br>        int [] a = new int [1024<em>1024</em>100]; //jvm的堆内存不够了</p>
+<p>Error的发生往往都是系统级别的问题，都是jvm所在系统发生的并反馈给jvm的，无法针对处理，只能修正代码</p>
+<p><img src="/2019/01/12/Java基础第七章，异常/7异常发生过程.png" alt><br><img src="/2019/01/12/Java基础第七章，异常/7异常应用_常见异常.png" alt></p>
+<p>常用异常</p>
+<ul>
+<li>RuntimeException； 运行时异常，那些可能在Java虚拟机正常运行期间抛出的异常的超类  </li>
+<li>ArrayIndexOutOfBoundsException；数组角标越界异常</li>
+<li>IllegalArgumentException；向方法传递了不合法或不正确的参数    </li>
+<li>NullPointerException；空指针异常，对象是null</li>
+<li>ClassCastException；试图将对象强制转换为不是实例的子类时抛出的异常</li>
+</ul>
+<h1 id="异常自定义-amp-体系"><a href="#异常自定义-amp-体系" class="headerlink" title="异常自定义&amp;体系"></a>异常自定义&amp;体系</h1><p>想要自定义符合自己程序要求的异常名称</p>
+<blockquote>
+<p>之前的几个异常都是java通过类进行的描述，并将问题封装成对象。这是符合面向对象思想的。其实异常就是把问题封装成了对象，所以我们可以对自己所需要的问题进行类的描述</p>
+</blockquote>
+<pre><code>Class DemoException extends Exception    {
+    DemoException(String message)    {    
+        super(message);    
+    }    
+}
+</code></pre><p>通过查看JavaAPI，看以上几个常用的异常是怎么继承的，看源码是怎么写的</p>
+<p>Throwable类中的方法</p>
+<pre><code>getMessage()：获取异常信息，返回字符串。
+toString()：获取异常类名和异常信息，返回字符串。
+printStackTrace()：获取异常类名和异常信息，以及异常出现在程序中的位置。返回值void
+printStackTrace(PrintStream s)：通常用该方法将异常内容保存在日志文件中，以便查阅。
+</code></pre><p><img src="/2019/01/12/Java基础第七章，异常/7自定义异常.png" alt><br><img src="/2019/01/12/Java基础第七章，异常/7自定义运行时异常.png" alt></p>
+<h1 id="编译时异常-amp-运行时异常"><a href="#编译时异常-amp-运行时异常" class="headerlink" title="编译时异常&amp;运行时异常"></a>编译时异常&amp;运行时异常</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>编译时异常：编译器会检测的异常</li>
+<li>运行时异常：编译器不会检测的异常，不需要声明。声明也可以，无外乎就是让调用者给出处理方式</li>
+<li><h2 id="编译时异常"><a href="#编译时异常" class="headerlink" title="编译时异常"></a>编译时异常</h2>如果在函数内抛出Exception，编译失败，因为编译器在检查语法时发生了错误。改程序已经出现了问题，Java认为这个程序本身存在隐患，需要捕获或者声明出来（要么把问题处理掉，要么把问题标识出来让调用者知道）</li>
+</ul>
+<p>声明是为了让调用者进行处理，处理完了程序继续运行，不会停止</p>
+<p>小敏理解：在编写代码时预知到了某一部分程序（try块）可能会出现异常，并提供预先处理方法（catch块，像日常中的灭火器），保证程序的【健壮性】</p>
+<h2 id="运行时异常"><a href="#运行时异常" class="headerlink" title="运行时异常"></a>运行时异常</h2><p>为什么抛出RuntimeException不需要捕获不需要声明？不是功能本身发生的异常，而是因为比如调用者传递参数错误而导致功能运行失败。这时也是问题，需要通过异常来体现，但是这个异常不要声明出来的。</p>
+<p>不声明是为了不让调用者进行处理，为了让程序停止，让调用者看到现象，并进行代码的修正。</p>
+<p>构造函数抛出的异常到底继承Exception还是RuntimeException呢？继承Exception，就必须要写throws声明，一声明就告知调用者进行捕获，一旦问题处理了，调用者的程序会继续执行。但是如果使用到了构造函数初始化的对象的数据，那么之后的数据就都是错的，因为初始化错了。如果继承RuntimeException，不需要throws声明，这时调用是不可能编写捕获代码的，因为调用者根本不知道有问题。一旦发生了异常，调用者程序会停掉，并由jvm将信息显示到屏幕，让调用者看到问题并修正代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**异常转换</span></span><br><span class="line"><span class="comment"> * 毕老师用电脑上课</span></span><br><span class="line"><span class="comment"> * 考虑问题：上课过程中电脑蓝屏异常*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//讲课过程中出现蓝屏异常，可以声明出来并给出处理方式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LanPingException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">	LanPingException()&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	LanPingException(String s)&#123;</span><br><span class="line">		<span class="keyword">super</span>(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//电脑冒烟了</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MaoYanException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">	MaoYanException()&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	MaoYanException(String s)&#123;</span><br><span class="line">		<span class="keyword">super</span>(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//没办法解决冒烟的问题，teach方法抛此异常</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoPlanException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">	NoPlanException()&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	NoPlanException(String s)&#123;</span><br><span class="line">		<span class="keyword">super</span>(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoteBook</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> state = <span class="number">2</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> LanPingException,MaoYanException</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(state==<span class="number">1</span>)&#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> LanPingException(<span class="string">"电脑蓝屏了"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(state==<span class="number">2</span>)&#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> MaoYanException(<span class="string">"电脑冒烟了"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"run notebook"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		state = <span class="number">0</span>;	</span><br><span class="line">		System.out.println(<span class="string">"电脑重启"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> NoteBook book;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		book = <span class="keyword">new</span> NoteBook();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"留练习"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">teach</span><span class="params">()</span> <span class="keyword">throws</span> NoPlanException</span>&#123;	</span><br><span class="line">		<span class="comment">//调用到了声明异常的方法，到底是捕获还是声明？</span></span><br><span class="line">		<span class="comment">//有具体的捕获处理方式，就捕获。没有，就声明</span></span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="comment">//对于声明多个异常的方法，在处理时，需要定义多个catch与之对应</span></span><br><span class="line">			book.run();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span>(LanPingException e)&#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">			book.reset();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span>(MaoYanException ex) &#123;</span><br><span class="line">			System.out.println(ex);</span><br><span class="line">			test();			</span><br><span class="line"><span class="comment">//			throw ex;//但是光test，冒烟问题并没有解决，因此应该抛出异常，并在方法前声明</span></span><br><span class="line">			<span class="comment">//讲课中冒烟，问题可以临时解决（留练习），是冒烟问题没有直接处理，所以就使用throws声明</span></span><br><span class="line">			<span class="comment">//但是发现，这个问题不应该属于teach的问题，调用讲个方法的调用者是处理不了这个问题的</span></span><br><span class="line">			<span class="comment">//该调用者能处理的应该是冒烟导致的课程进行不下去的问题。所以应该加上一个“课时停止”异常</span></span><br><span class="line">			<span class="comment">//而且teach方法抛出了冒烟的异常，很灵异。</span></span><br><span class="line">			</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> NoPlanException();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(name+<span class="string">" teach"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExceptionDemo2</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arg)</span> <span class="keyword">throws</span> LanPingException</span>&#123;</span><br><span class="line">		Teacher teacher = <span class="keyword">new</span> Teacher(<span class="string">"Bi"</span>);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			teacher.teach();<span class="comment">//teach方法有抛异常</span></span><br><span class="line">		&#125;</span><br><span class="line"><span class="comment">//		catch(MaoYanException e) &#123;</span></span><br><span class="line"><span class="comment">//			System.out.println("换老师");</span></span><br><span class="line"><span class="comment">//		&#125;</span></span><br><span class="line">		<span class="keyword">catch</span>(NoPlanException n) &#123;</span><br><span class="line">			System.out.println(<span class="string">"课程终止"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="捕获-amp-声明"><a href="#捕获-amp-声明" class="headerlink" title="捕获&amp;声明"></a>捕获&amp;声明</h1><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>将问题标识出来，报告给调用者</p>
+<p>如果函数内通过throw抛出了编译时异常，而没捕获，必须通过throws进行声明，让调用者去处理</p>
+<p>只要方法里面存在没catch掉的异常，或者catch里面抛出了新的异常但没有继续catch掉，都需要在方法后面声明异常</p>
+<p><img src="/2019/01/12/Java基础第七章，异常/7声明.png" alt></p>
+<h2 id="捕获"><a href="#捕获" class="headerlink" title="捕获"></a>捕获</h2><p>Java中对异常有针对性的语句进行捕获</p>
+<pre><code>try{
+    //需要被检测的语句 
+} catch（异常类 变量）{
+    //异常的处理语句 
+} finally{
+    //一定会被执行的语句 
+}
+</code></pre><p>对于声明多个异常的方法，在处理时，需要定义多个catch与之对应，catch中的变量也可以多态，但是父类必须放下面。因为如果父类catch(Exception e )放在了最上面，一次性捕获了所有子类异常，那下面的catch全不执行了。只有上面的catch没捕获完，下面的catch才继续执行。且捕获父类异常没办法针对性处理</p>
+<pre><code>public void run() throws OneException,TwoException{
+}  
+</code></pre><p><img src="/2019/01/12/Java基础第七章，异常/7捕获.png" alt></p>
+<h1 id="throw和throws的区别"><a href="#throw和throws的区别" class="headerlink" title="throw和throws的区别"></a>throw和throws的区别</h1><ul>
+<li>throw用在函数内；抛出的异常的对象</li>
+<li>throws用在函数上；用于进行异常类的声明，后面的异常类可以有多个，用逗号隔开</li>
+</ul>
+<h1 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h1><p>finally代码块中存放的代码都是一定会被执行的，catch中有return的话，finally在return之前执行；但是如果catch和finally都有return的话，finally还是在catch中的return之前执行，但是finally的return会结束程序，catch的return不会执行</p>
+<p>注意：有一种情况，finally也不执行。System.exit(0);//退出jvm</p>
+<p>应用场景：只要程序中使用到了具体的资源（数据库链接、IO资源、网络连接socket等）需要释放，都必须定义在finally中。你在定义程序，不管问题发生与否，指定程序都需要执行时，就定义在finally中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 有一些特定的代码，不论异常是否发生，都需要执行</span></span><br><span class="line"><span class="comment"> * 因为异常会引发程序的跳转，导致有些语句执行不到。无法满足这个需求</span></span><br><span class="line"><span class="comment"> * 在异常捕获处理时，Java提供了解决方案</span></span><br><span class="line"><span class="comment"> * finally代码块中存放的代码都是一定会被执行的</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThrowAndThrows</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Demo demo = <span class="keyword">new</span> Demo();</span><br><span class="line">		<span class="comment">//因为调用了声明异常的show方法，所以要么继续声明，要么捕获</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			demo.show(<span class="number">4</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(NoShowException e) &#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">			<span class="keyword">return</span>; <span class="comment">//若无finally，如果异常发生，处理完毕后return，程序就此结束</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">finally</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">"over"</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoShowException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;</span><br><span class="line">	NoShowException(String message)&#123;</span><br><span class="line">		<span class="keyword">super</span>(message);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> num)</span> <span class="keyword">throws</span> NoShowException </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(num&lt;<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> NoShowException(num+<span class="string">"是非法的"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="try-catch-finally组合"><a href="#try-catch-finally组合" class="headerlink" title="try catch finally组合"></a>try catch finally组合</h1><p>try catch，异常捕获处理：对代码进行异常检测，并对检测的异常传递给catch处理</p>
+<p>try finally：对代码进行异常检测，检测到异常后因为没有catch，一样会被jvm抛出。异常是没有捕获处理的，但是功能所开启的资源需要关闭。这种情况异常没有处理，所以方法后面需要用 throws 声明异常</p>
+<p>try catch finally：检测异常，并传递给catch处理，并定义资源释放</p>
+<p>try catch1 catch2 —：对抛出的异常进行针对性处理</p>
+<h1 id="异常在继承或实现中的使用细节"><a href="#异常在继承或实现中的使用细节" class="headerlink" title="异常在继承或实现中的使用细节"></a>异常在继承或实现中的使用细节</h1><p>子类在覆盖父类的方法时，如果父类的方法声明异常，子类只能声明父类异常或其子类，或者不声明 </p>
+<p>当父类方法声明多个异常时，子类覆盖时，只能声明多个异常的子集</p>
+<p>当被覆盖的方法没有异常声明时，子类覆盖时是无法声明异常的,只能转换成RuntimeException</p>
+<p><img src="/2019/01/12/Java基础第七章，异常/7父类不抛异常，子类的异常只能转换成RuntimeException.png" alt></p>
+<p>有一个比较特别的是RuntimeException。因为它可声明可不声明，所以子类声明它也相当于没声明。因此父类没有声明RuntimeException时，子类也是可以声明的</p>
+<p>综上：父类已经有问题了，子类不能比父类的问题还多。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**解释为什么子类抛出的异常只能小于等于父类</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * Exception</span></span><br><span class="line"><span class="comment"> * 		|--AException</span></span><br><span class="line"><span class="comment"> * 			|--AAException</span></span><br><span class="line"><span class="comment"> * 		|--BException</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AAException</span> <span class="keyword">extends</span> <span class="title">AException</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fu</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">throws</span> AException</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tool</span></span>&#123;</span><br><span class="line">	<span class="comment">//当method传入的对象是zi时，fu.show调用的是子类的show方法</span></span><br><span class="line">	<span class="comment">//若子类抛出了BException，catch块catch不到了</span></span><br><span class="line">	<span class="comment">//因此子类只能抛出AException或者AException的子类异常</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">method</span><span class="params">(Fu fu)</span> </span>&#123;	<span class="comment">//Fu fu = new Zi();多态</span></span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			fu.show();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(AException ae) &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Zi</span> <span class="keyword">extends</span> <span class="title">Fu</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">throws</span> AAException</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> BException </span>&#123;</span><br><span class="line">		</span><br><span class="line">		Tool tool = <span class="keyword">new</span> Tool();</span><br><span class="line">		tool.method(<span class="keyword">new</span> Fu());</span><br><span class="line">		</span><br><span class="line">		tool.method(<span class="keyword">new</span> Zi());<span class="comment">//Fu fu = new Zi();多态</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>若接口中没有声明异常，而实现的子类覆盖方法时发生了异常，那么无法继续throws声明，只能catch捕获。万一问题解决不了，catch中继续throws抛出，但是只能将异常转换成RuntimeException子类抛出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Inter</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> <span class="keyword">implements</span> <span class="title">Inter</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> Exception();</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/毕向东/" rel="tag"># 毕向东</a>
+          
+            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/08/Java基础第六章，内部类/" rel="next" title="Java基础第六章，内部类">
+                <i class="fa fa-chevron-left"></i> Java基础第六章，内部类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/java多线程/" rel="prev" title="Java多线程">
+                Java多线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="黄敏">
+            
+              <p class="site-author-name" itemprop="name">黄敏</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#异常和错误"><span class="nav-number">1.</span> <span class="nav-text">异常和错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常自定义-amp-体系"><span class="nav-number">2.</span> <span class="nav-text">异常自定义&amp;体系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译时异常-amp-运行时异常"><span class="nav-number">3.</span> <span class="nav-text">编译时异常&amp;运行时异常</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">3.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译时异常"><span class="nav-number">3.2.</span> <span class="nav-text">编译时异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时异常"><span class="nav-number">3.3.</span> <span class="nav-text">运行时异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#捕获-amp-声明"><span class="nav-number">4.</span> <span class="nav-text">捕获&amp;声明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">4.1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获"><span class="nav-number">4.2.</span> <span class="nav-text">捕获</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#throw和throws的区别"><span class="nav-number">5.</span> <span class="nav-text">throw和throws的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#finally"><span class="nav-number">6.</span> <span class="nav-text">finally</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#try-catch-finally组合"><span class="nav-number">7.</span> <span class="nav-text">try catch finally组合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常在继承或实现中的使用细节"><span class="nav-number">8.</span> <span class="nav-text">异常在继承或实现中的使用细节</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黄敏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
