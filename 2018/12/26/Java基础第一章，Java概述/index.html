@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,毕向东,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原创，转载请注明出处 基本常识软件开发软件：计算机数据和指令的集合  系统软件：DOS, Windows, IOS 应用软件：QQ  开发：制作软件 人机交互方式：软件的出现实现了人与计算机更好的交互 图形化界面交互  命令行方式交互  dir：列出当前目录下的文件及文件夹 md/rd：创建/删除目录     cd，cd..，cd/：进入指定目录，退回到上一级目录，返回根目录     del：删除">
+<meta name="keywords" content="Java,毕向东">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java语言基础第一章，Java概述">
+<meta property="og:url" content="http://yoursite.com/2018/12/26/Java基础第一章，Java概述/index.html">
+<meta property="og:site_name" content="米轻轻&#39;blog">
+<meta property="og:description" content="原创，转载请注明出处 基本常识软件开发软件：计算机数据和指令的集合  系统软件：DOS, Windows, IOS 应用软件：QQ  开发：制作软件 人机交互方式：软件的出现实现了人与计算机更好的交互 图形化界面交互  命令行方式交互  dir：列出当前目录下的文件及文件夹 md/rd：创建/删除目录     cd，cd..，cd/：进入指定目录，退回到上一级目录，返回根目录     del：删除">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/12/26/Java基础第一章，Java概述/Java语言基础/1.png">
+<meta property="og:updated_time" content="2019-05-28T07:53:15.697Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java语言基础第一章，Java概述">
+<meta name="twitter:description" content="原创，转载请注明出处 基本常识软件开发软件：计算机数据和指令的集合  系统软件：DOS, Windows, IOS 应用软件：QQ  开发：制作软件 人机交互方式：软件的出现实现了人与计算机更好的交互 图形化界面交互  命令行方式交互  dir：列出当前目录下的文件及文件夹 md/rd：创建/删除目录     cd，cd..，cd/：进入指定目录，退回到上一级目录，返回根目录     del：删除">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/26/Java基础第一章，Java概述/Java语言基础/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/26/Java基础第一章，Java概述/">
+
+
+
+
+
+  <title>Java语言基础第一章，Java概述 | 米轻轻'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">米轻轻'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/26/Java基础第一章，Java概述/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄敏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米轻轻'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java语言基础第一章，Java概述</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T15:24:17+08:00">
+                2018-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原创，转载请注明出处</p>
+<h2 id="基本常识"><a href="#基本常识" class="headerlink" title="基本常识"></a>基本常识</h2><h3 id="软件开发"><a href="#软件开发" class="headerlink" title="软件开发"></a>软件开发</h3><p>软件：计算机数据和指令的集合</p>
+<ul>
+<li>系统软件：DOS, Windows, IOS</li>
+<li>应用软件：QQ</li>
+</ul>
+<p>开发：制作软件</p>
+<h3 id="人机交互方式：软件的出现实现了人与计算机更好的交互"><a href="#人机交互方式：软件的出现实现了人与计算机更好的交互" class="headerlink" title="人机交互方式：软件的出现实现了人与计算机更好的交互"></a>人机交互方式：软件的出现实现了人与计算机更好的交互</h3><ul>
+<li><p>图形化界面交互</p>
+</li>
+<li><p>命令行方式交互</p>
+<ul>
+<li>dir：列出当前目录下的文件及文件夹</li>
+<li>md/rd：创建/删除目录    </li>
+<li>cd，cd..，cd/：进入指定目录，退回到上一级目录，返回根目录    </li>
+<li>del：删除文件</li>
+</ul>
+</li>
+<li><p>计算机语言：人与计算机交流的方式</p>
+</li>
+</ul>
+<h3 id="常用的DOS命令"><a href="#常用的DOS命令" class="headerlink" title="常用的DOS命令"></a>常用的DOS命令</h3><h2 id="1-1-什么是计算机语言"><a href="#1-1-什么是计算机语言" class="headerlink" title="1.1 什么是计算机语言"></a>1.1 什么是计算机语言</h2><h2 id="1-2-Java语言概述"><a href="#1-2-Java语言概述" class="headerlink" title="1.2 Java语言概述"></a>1.2 Java语言概述</h2><blockquote>
+<ul>
+<li>是SUN(Stanford University Network，斯坦福大学网络公司)1995年推出的一门高级编程语言。</li>
+<li>是一种面向Internet的编程语言。</li>
+<li>随着Java技术在web方面的不断成熟，已经成为Web应用程序的首选开发语言。</li>
+<li>是简单易学，完全面向对象，安全可靠，与平台无关的编程语言。</li>
+</ul>
+</blockquote>
+<h3 id="1-2-1-Java语言的三种技术架构"><a href="#1-2-1-Java语言的三种技术架构" class="headerlink" title="1.2.1 Java语言的三种技术架构"></a>1.2.1 Java语言的三种技术架构</h3><ol>
+<li>JAVAEE（Enterprise Edition）：开发企业环境，针对Web应用程序开发</li>
+</ol>
+<ol start="2">
+<li>JAVASE（Standard Edition）：开发普通桌面和商务应用程序。是其他两者的基础，可完成一些桌面应用程序的开发。</li>
+</ol>
+<ol start="3">
+<li>JAVAME（Micro Edition）：开发电子消费产品和嵌入式设备。用于小型电子消费类产品，如手机应用程序。</li>
+</ol>
+<h3 id="1-2-2-Java语言的特点：跨平台性"><a href="#1-2-2-Java语言的特点：跨平台性" class="headerlink" title="1.2.2 Java语言的特点：跨平台性"></a>1.2.2 Java语言的特点：跨平台性</h3><p><strong>跨平台性：</strong>通过Java语言编写的应用程序在不同的系统平台上都可以运行</p>
+<p><strong>原理：</strong>能跨平台是因为Java有自己的虚拟机(JVM Java Virtual Machine)，先安装JVM，由JVM来负责Java程序在不同平台运行。因为虚拟机可能会调用系统底层的东西，所以不同系统都对应不同版本的JVM，但是不需要改变Java程序</p>
+<h2 id="1-3-Java语言的环境搭建"><a href="#1-3-Java语言的环境搭建" class="headerlink" title="1.3 Java语言的环境搭建"></a>1.3 Java语言的环境搭建</h2><h3 id="1-3-1-什么是JRE和JDK？"><a href="#1-3-1-什么是JRE和JDK？" class="headerlink" title="1.3.1 什么是JRE和JDK？"></a>1.3.1 什么是JRE和JDK？</h3><p>JRE(Java Runtime Environment)：运行环境；包括JVM和Java程序所需的核心类库等，如果想要 运行 一个开发好的Java程序，计算机中只需要安装JRE即可</p>
+<p>JDK(Java Development Kit)：开放工具包；JDK是提供给Java开发人员使用的，其中包含了java的开发工具，也包括了JRE。所以安装了JDK，就不用在单独安装JRE了。</p>
+<p><img src="/2018/12/26/Java基础第一章，Java概述/Java语言基础/1.png" alt></p>
+<h3 id="1-3-2-JDK下载"><a href="#1-3-2-JDK下载" class="headerlink" title="1.3.2 JDK下载"></a>1.3.2 JDK下载</h3><p><a href="http://www.oracle.com" target="_blank" rel="noopener">www.oracle.com</a> 或 java.sun.com</p>
+<h3 id="1-3-3-JDK安装"><a href="#1-3-3-JDK安装" class="headerlink" title="1.3.3 JDK安装"></a>1.3.3 JDK安装</h3><p>安装JDK时，会提示安装JRE，可以选择不安装。而且到一台新的机器上时，可以直接把JDK的目录考过去，不需要重新安装。只是安装会在注册表里有注册，联网下有更新会提示。就这么点区别。</p>
+<h3 id="1-3-4-配置环境变量path"><a href="#1-3-4-配置环境变量path" class="headerlink" title="1.3.4 配置环境变量path"></a>1.3.4 配置环境变量path</h3><p><strong>原理：</strong>在DOS中，若当前执行的程序在当前目录下不存在，系统会在path的环境变量指定的目录中查找。这样只要path中有该程序的运行路径，该程序就可在任一目录下运行</p>
+<p><strong>配置：</strong>path环境变量下，将JDK的bin目录的完整路径复制到其中，并与前后的目录用；分隔开。也可以在系统变量中，令变量JAVA_HOME为bin之前的目录，然后再path中添加%JAVA_HOME%\bin；</p>
+<h2 id="1-4-Java程序开发体验"><a href="#1-4-Java程序开发体验" class="headerlink" title="1.4 Java程序开发体验"></a>1.4 Java程序开发体验</h2><ol>
+<li>将java代码编写到扩展名为.java的文件中</li>
+<li>javac命令对.java文件进行编译，生成.class文件（错误是在编译时报出来的）</li>
+<li>java命令（调用JVM）对生成的.class文件运行（其实就是虚拟机调用你类中的主函数。你需要这个类可以独立运行才需要主函数，不需要它独立运行，这个类就可以不写主函数。主函数就是程序的入口）</li>
+<li>示例<ul>
+<li>新建一个txt文件，写好小程序后保存成demo.java文件</li>
+<li>dos进入该文件的目录下编译，javac demo.java（后缀名不能省） </li>
+<li>运行：java demo（后缀名可省）</li>
+</ul>
+</li>
+</ol>
+<h1 id="1-5-配置classpath"><a href="#1-5-配置classpath" class="headerlink" title="1.5 配置classpath"></a>1.5 配置classpath</h1><p>classpath变量值是java类文件的目录：只找classpath中的路径</p>
+<ul>
+<li>值的结尾处有分号，那么JVM在classpath目录下没有找到要指定的类文件，会在当前目录下在查找一次。</li>
+<li>值的结尾处没有分号，那么JVM在classpath目录下没有找到要指定的类文件，不会在当前目录下查找。</li>
+<li>如果需要将当前路径添加到classpath中，不要用分号，建议 classpath=.;某一目录;某二目录。其中.表示当前路径</li>
+</ul>
+<p>path变量是windows可执行程序文件的目录：先在当前目录下查找，再找path环境变量中的路径</p>
+<h1 id="1-6-创建问题及解决方法"><a href="#1-6-创建问题及解决方法" class="headerlink" title="1.6 创建问题及解决方法"></a>1.6 创建问题及解决方法</h1><p>固定格式：类名由一个或多个单词组成，每个单词首字母大写</p>
+<p>主函数：public static void main(String[] args)</p>
+<p>注释</p>
+<ul>
+<li>单行注释//，多行注释/<em> </em>/，除多行注释不能嵌套多行注释，其他可以</li>
+<li>文档注释/*<em> </em>/，写在代码最前面，说明作者、时间、代码输入输出信息等</li>
+<li>写代码过程中必须加注释，并且每行都加注释导致阅读性很差，可以几行难懂的程序集体加一行注释；</li>
+<li>注释也用来调试程序：把怀疑有错的代码注释掉，编译不报错的话，则怀疑正确~</li>
+</ul>
+<h1 id="1-7-总结重点"><a href="#1-7-总结重点" class="headerlink" title="1.7 总结重点"></a>1.7 总结重点</h1><ul>
+<li>JDK, JRE, JVM的特点</li>
+<li>环境变量的配置path和classpath以及作用</li>
+<li>Java程序的编写，编译，运行步骤</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/毕向东/" rel="tag"># 毕向东</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/03/Letex基础用法/" rel="next" title="Letex基础用法">
+                <i class="fa fa-chevron-left"></i> Letex基础用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/16/Java基础第二章，java语言基础/" rel="prev" title="Java基础第二章，java语言基础">
+                Java基础第二章，java语言基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="黄敏">
+            
+              <p class="site-author-name" itemprop="name">黄敏</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本常识"><span class="nav-number">1.</span> <span class="nav-text">基本常识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件开发"><span class="nav-number">1.1.</span> <span class="nav-text">软件开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人机交互方式：软件的出现实现了人与计算机更好的交互"><span class="nav-number">1.2.</span> <span class="nav-text">人机交互方式：软件的出现实现了人与计算机更好的交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的DOS命令"><span class="nav-number">1.3.</span> <span class="nav-text">常用的DOS命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-什么是计算机语言"><span class="nav-number">2.</span> <span class="nav-text">1.1 什么是计算机语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Java语言概述"><span class="nav-number">3.</span> <span class="nav-text">1.2 Java语言概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-Java语言的三种技术架构"><span class="nav-number">3.1.</span> <span class="nav-text">1.2.1 Java语言的三种技术架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-Java语言的特点：跨平台性"><span class="nav-number">3.2.</span> <span class="nav-text">1.2.2 Java语言的特点：跨平台性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Java语言的环境搭建"><span class="nav-number">4.</span> <span class="nav-text">1.3 Java语言的环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-什么是JRE和JDK？"><span class="nav-number">4.1.</span> <span class="nav-text">1.3.1 什么是JRE和JDK？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-JDK下载"><span class="nav-number">4.2.</span> <span class="nav-text">1.3.2 JDK下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-JDK安装"><span class="nav-number">4.3.</span> <span class="nav-text">1.3.3 JDK安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-配置环境变量path"><span class="nav-number">4.4.</span> <span class="nav-text">1.3.4 配置环境变量path</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Java程序开发体验"><span class="nav-number">5.</span> <span class="nav-text">1.4 Java程序开发体验</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#1-5-配置classpath"><span class="nav-number"></span> <span class="nav-text">1.5 配置classpath</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-6-创建问题及解决方法"><span class="nav-number"></span> <span class="nav-text">1.6 创建问题及解决方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-7-总结重点"><span class="nav-number"></span> <span class="nav-text">1.7 总结重点</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黄敏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

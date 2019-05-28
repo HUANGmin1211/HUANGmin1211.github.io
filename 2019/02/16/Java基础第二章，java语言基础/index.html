@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,毕向东,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原创，转载请注明出处 关键字定义：被Java语言赋予了特殊含义的单词 特点：关键字中所有字母都小写 分类：详见图“关键字1 ”和“关键字2” 标识符定义：在程序中自定义的一些名称 组成：26个英文字母（区分大小写）、0-9数字、_和$，其中数字不能开头，且不能使用关键字 规范：  包名：所有字母都小写。xxxyyyzzz 类名接口名：多单词组成时，所有单词的首字母大写。XxxYyyZzz 变量名和">
+<meta name="keywords" content="Java,毕向东">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础第二章，java语言基础">
+<meta property="og:url" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/index.html">
+<meta property="og:site_name" content="米轻轻&#39;blog">
+<meta property="og:description" content="原创，转载请注明出处 关键字定义：被Java语言赋予了特殊含义的单词 特点：关键字中所有字母都小写 分类：详见图“关键字1 ”和“关键字2” 标识符定义：在程序中自定义的一些名称 组成：26个英文字母（区分大小写）、0-9数字、_和$，其中数字不能开头，且不能使用关键字 规范：  包名：所有字母都小写。xxxyyyzzz 类名接口名：多单词组成时，所有单词的首字母大写。XxxYyyZzz 变量名和">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2关键字1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2关键字2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2continue和break标号的使用.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2栈的内存结构.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2栈内存实例.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2堆内存实例.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2选择排序和冒泡排序.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2折半查找法.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2进制转换程序.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2数组内存结构.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2二维数组内存中的存储.png">
+<meta property="og:updated_time" content="2019-05-28T08:33:10.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基础第二章，java语言基础">
+<meta name="twitter:description" content="原创，转载请注明出处 关键字定义：被Java语言赋予了特殊含义的单词 特点：关键字中所有字母都小写 分类：详见图“关键字1 ”和“关键字2” 标识符定义：在程序中自定义的一些名称 组成：26个英文字母（区分大小写）、0-9数字、_和$，其中数字不能开头，且不能使用关键字 规范：  包名：所有字母都小写。xxxyyyzzz 类名接口名：多单词组成时，所有单词的首字母大写。XxxYyyZzz 变量名和">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/2关键字1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/">
+
+
+
+
+
+  <title>Java基础第二章，java语言基础 | 米轻轻'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">米轻轻'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/16/Java基础第二章，java语言基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄敏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米轻轻'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java基础第二章，java语言基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-16T15:50:39+08:00">
+                2019-02-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原创，转载请注明出处</p>
+<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><p>定义：被Java语言赋予了特殊含义的单词</p>
+<p>特点：关键字中所有字母都小写</p>
+<p>分类：详见图“关键字1 ”和“关键字2”<br><img src="/2019/02/16/Java基础第二章，java语言基础/2关键字1.jpg" alt><br><img src="/2019/02/16/Java基础第二章，java语言基础/2关键字2.jpg" alt></p>
+<h1 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h1><p>定义：在程序中自定义的一些名称</p>
+<p>组成：26个英文字母（区分大小写）、0-9数字、_和$，其中数字不能开头，且不能使用关键字</p>
+<p>规范：</p>
+<ul>
+<li>包名：所有字母都小写。xxxyyyzzz</li>
+<li>类名接口名：多单词组成时，所有单词的首字母大写。XxxYyyZzz</li>
+<li>变量名和函数名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写。xxxYyyZzz</li>
+<li>常量名：所有字母都大写。多单词时每个单词用下划线连接。XXX_YYY_ZZZ</li>
+</ul>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>格式</p>
+<ul>
+<li>单行注释。 //注释文字</li>
+<li>多行注释。 /<em>  注释文字  </em>/</li>
+<li>文档注释。/*<em> 注释文字 </em>/</li>
+</ul>
+<p>单行和多行注释不会被JVM解释执行，但文档注释是Java特有的注释，注释内容可以被JDK提供的工具 javadoc 所解析，生成一套以网页文件形式体现的该程序的说明文档</p>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>数值型</p>
+<ul>
+<li>整数类型（byte：8位（字节），short：2个八位，int：4个八位，long：8个八位）</li>
+<li>浮点类型（float：4个八位，double：8个八位）</li>
+</ul>
+<p>字符型（char：2个8位）和布尔型（boolean）</p>
+<p><strong>基本数据类型在栈中直接存值</strong></p>
+<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><p>类（class），接口（interface）和数组（[ ]）</p>
+<p><strong>引用数据类型存在堆中</strong>，栈中只存指向堆内存的首地址</p>
+<p>默认：整数默认int，小数默认double，String默认null。注意特别的两个定义：long a = 2l; float = 2.3f;</p>
+<p>char s= ‘你’; 是对的，char是两个字节，一个汉字也是两个字节。不过一个英文字母是一个字节。</p>
+<h1 id="常量和变量"><a href="#常量和变量" class="headerlink" title="常量和变量"></a>常量和变量</h1><h2 id="常量：不能改变的数值"><a href="#常量：不能改变的数值" class="headerlink" title="常量：不能改变的数值"></a>常量：不能改变的数值</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>整数常量，小数常量</li>
+<li>布尔型常量。只有两个数值。true false。</li>
+<li>字符常量。将一个数字字母或者符号用单引号( ‘ ‘ )标识。</li>
+<li>字符串常量。将一个或者多个字符用双引号标识。</li>
+<li>null常量。只有一个数值就是 null.</li>
+</ul>
+<h3 id="整数表现形式"><a href="#整数表现形式" class="headerlink" title="整数表现形式"></a>整数表现形式</h3><ul>
+<li>二进制，十进制，八进制（0开头），十六进制（0x开头）</li>
+<li>二进制：8个二进制位表示一个字节，最大是255</li>
+<li>8进制就是3个2进制代表一位；16进制就是4个2进制代表一位；十进制转成8、16进制时，用2进制过度比较方便</li>
+<li><strong>负数的二进制：对应的正数的二进制取反+1</strong></li>
+</ul>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>定义：存储不确定的数据，需要在内存中开辟一个空间，该区域有自己的名称（变量名）和类型（数据类型），该区域的数据可以在同一类型范围内不断变化</p>
+<p>类型转换</p>
+<pre><code>byte b = 3； b = b+2；溢出报错，因为2默认位int，需要加上强制类型转换 b = (byte) (b+2);
+byte b = 3； int x = 2; x=x+b; 不报错，但此时x=x+b中，b会自动提升为int型
+char + int = int
+</code></pre><ul>
+<li>一个操作数直接是数字，所有的byte型、short型和char的值将被提升到int型。</li>
+<li>Java中的byte，short，char进行计算时都会提升为int类型。</li>
+<li>long → float  无须强制转换</li>
+<li>如果一个操作数是long（float，double）型，计算结果就是long（float，double）型；</li>
+</ul>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><p>包括算数、赋值、比较、逻辑、位、三元 运算符</p>
+<h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><p>%：取余，也叫取模，在两个操作数有负数的情况下，取余的符号与第一个数的符号相同。操作数必须是整数！！！</p>
+<p>b=a++; 先赋值，再自增；b=++a; 先自增，再赋值</p>
+<p>+既是加号，又是字符串连接：字符串数据和任何数据使用+相连接，最终都会变成字符串：“hel”+“lo”+5 = “hello5”;   “ab”+5+5=”ab55”</p>
+<p>int x=3510; x=x/1000*1000;  x=3000</p>
+<h2 id="赋值预算符"><a href="#赋值预算符" class="headerlink" title="赋值预算符"></a>赋值预算符</h2><pre><code>short s=4; s=s+5;  报错，先s+5成了一个int型的数，再int赋值给short会丢失精度报错。
+short s=4; s+=5; 不报错。+=就是把左右两边的和赋值给左边，左右两边的和位9，在short范围内， 赋值成功。也可以理解成会自动转换
+</code></pre><h1 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h1><pre><code>&amp;：左右都会运算； &amp;&amp;（短路）：左边是假的话，不会进一步运算右边了
+|：左右都运算；||：左边为真的话，不会进一步运算右边了
+</code></pre><h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><pre><code>&lt;&lt;：被移除的高位丢弃，空位补0。  x&lt;&lt;n = x*2^(n)
+&gt;&gt;：被移位的二进制最高位是0，空位补0；最高位是1，空位补1。 x&gt;&gt;n = x/2^(n)
+&gt;&gt;&gt;：被移位二进制最高位无论是0或者是1，空缺位都用0补
+~取反：~6=-7；6的所有位取反，然后先减一再取反得7
+^亦或：7^4^4=7，一个数异或同一个数两次，结果是它本身。用于数据加密
+</code></pre><p>不需要第三个变量来对n和m的值进行交换：</p>
+<pre><code>n=n+m;  m=n-m;  n=n-m; //若n和m很大，n+m超出int会损失精度  
+n=n^m; m=n^m;  n=n^m;  //m=(n^m)^m=n；
+</code></pre><p>最快的运算就是位运算。如果需要乘除2的倍数的话，就用位运算来做</p>
+<h1 id="程序流程控制"><a href="#程序流程控制" class="headerlink" title="程序流程控制"></a>程序流程控制</h1><h2 id="判断结构"><a href="#判断结构" class="headerlink" title="判断结构"></a>判断结构</h2><p>if{ }；if{ } else{ }；if{ } else if{ } … else{ }</p>
+<h2 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h2><p>语句：switch( ){ case value: 语句1; break; default: 语句;}</p>
+<p>switch语句选择的类型只有四种：byte，short，int ， char。</p>
+<p>case之间与default没有顺序。先执行第一个case，没有匹配的case执行default。即default不必须放在最后，可以放在任意位置，只是程序执行的时候确实会最后执行default语句</p>
+<p>结束switch语句的两种情况：遇到break，执行到switch语句结束。</p>
+<p>如果匹配的case或者default没有对应的break，那么程序会继续向下执行，运行可以执行的语句而不再进行case判断，直到遇到break或者switch结尾结束,</p>
+<p>若判断的是以上四种类型的具体数值且不多，switch较if效率稍高；但是if应用范围更广，局限性较switch小</p>
+<p>多个匹配用同一条语句：</p>
+<pre><code>switch(x){
+    case3: 
+    case4: 
+    case5: 
+        输出春天；
+        break;
+}
+</code></pre><h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>while( ){ }； do{ }while( )； for( ; ; ){ }；</p>
+<p>while与for区别在于：for为了循环而定义的变量在for循环结束后在内存中释放。而while循环使用的变量在循环结束后还可以继续使用</p>
+<p>无限循环的两种形式：while(true){ } 和 for( ; ; ){ }</p>
+<h2 id="break-和-continue、"><a href="#break-和-continue、" class="headerlink" title="break 和 continue、"></a>break 和 continue、</h2><p>continue是跳出本次循环进行下次循环，break是中断循环</p>
+<p>这个两个语句单独存在下面都不可以有语句，会报错，因为执行不到</p>
+<p><img src="/2019/02/16/Java基础第二章，java语言基础/2continue和break标号的使用.png" alt></p>
+<h1 id="2-7-函数"><a href="#2-7-函数" class="headerlink" title="2.7 函数"></a>2.7 函数</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>函数也成为方法，是定义在类中的具有特定功能的一段独立小程序</p>
+<pre><code>格式：修饰符 返回值类型 函数名(参数类型 形式参数1，参数类型 形式参数2){执行语句;return 返回值;}
+</code></pre><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>定义函数可以将功能代码进行封装，函数的出现提高了代码的复用性</li>
+<li>函数只有被调用才会被执行</li>
+<li>函数中只能调用函数，不可以在函数内部定义函数。主函数也是函数</li>
+<li>各个函数在类中没有顺序的概念，但是都是从主函数开始执行</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>明确返回值类型；明确函数的参数列表，包括参数类型和参数个数</p>
+<p>减少重复功能代码的复用</p>
+<h2 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h2><p>概念：在同一个类中，允许存在一个以上的同名函数，只要它们的参数个数或者参数类型不同即可。</p>
+<p>特点：与返回值类型无关，只看参数列表。</p>
+<pre><code>int add(int x,int y) {return x+y;}
+int add(int x,int y,int z) {return x+y+z;}（重载）
+void add(int x,int y) {return x+y;}（没重载，与返回值类型无关，因此报错） 
+</code></pre><p>主函数应尽量精简！把功能代码全都拿出去放到函数中去，让主函数调用！</p>
+<h1 id="2-8-数组"><a href="#2-8-数组" class="headerlink" title="2.8 数组"></a>2.8 数组</h1><h2 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h2><p>同一种类型数据的集合，数组也是一种数据类型，属于<strong>引用数据类型</strong></p>
+<pre><code>元素类型 [ ] 数组名 = new 元素类型 [ 元素个数或数组长度 ];                                            //    动态初始化
+元素类型 [ ] 数组名 = new 元素类型 [ ] {元素，元素，……}  或  元素类型 [ ] 数组名 = {元素，元素，……}        //    静态初始化
+</code></pre><h2 id="内存分配及特点"><a href="#内存分配及特点" class="headerlink" title="内存分配及特点"></a>内存分配及特点</h2><blockquote>
+<p>Java程序在运行时，需要在内存中的分配空间。为了提高运算效率，有对空间进行了不同区域的划分，因为每一片区域都有特定的处理数据方式和内存管理方式。</p>
+</blockquote>
+<p>栈内存： 用于存储局部变量（例如for循环中的变量），当数据使用完，所占空间会自动释放。见图栈的内存结构</p>
+<p><img src="/2019/02/16/Java基础第二章，java语言基础/2栈的内存结构.png" alt><br><img src="/2019/02/16/Java基础第二章，java语言基础/2栈内存实例.png" alt></p>
+<p>堆内存：</p>
+<ul>
+<li>数组和对象，通过new建立的实例都存放在堆内存中。见图数组内存结构</li>
+<li>每一个实体都有内存地址值， 实体中的变量都有默认初始化值</li>
+<li>实体不在被使用，会在不确定的时间内被垃圾回收器回收。C++需要手动清除垃圾，Java虚拟机有自动的垃圾回收机制</li>
+</ul>
+<p><img src="/2019/02/16/Java基础第二章，java语言基础/2堆内存实例.png" alt></p>
+<p>两个变量指向了同一个数组实例</p>
+<pre><code>//两个引用指向了同一个对象（数组）
+int [ ] x = new int [3];
+int [ ] y = x;    
+y[1] = 89;    
+System.out.println( x[1] ); //89        
+x = null; //x不再指向数组地址，此时y还指向数组，数组并没有变成垃圾
+</code></pre><p>堆内存比栈内存大一些，因为栈内存释放的快，不需要太大</p>
+<h2 id="操作常见问题"><a href="#操作常见问题" class="headerlink" title="操作常见问题"></a>操作常见问题</h2><ul>
+<li>数组脚标越界异常(ArrayIndexOutOfBoundsException)：访问到了数组中的不存在的脚标时发生</li>
+<li>空指针异常(NullPointerException):arr引用没有指向实体，却在操作实体中的元素时。</li>
+</ul>
+<h2 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h2><p>获取数组中的元素，其中数组x的长度为 x.length，length没有括号</p>
+<p>获取最值（最大值、最小值）</p>
+<p>排序（选择排序、冒泡排序）</p>
+<ul>
+<li>最快速的排序方式是希尔排序</li>
+<li>面试时常问到的时选择和冒泡排序。</li>
+<li>但是实际开发都用 java util 中排序的函数 Array.sort(arr);</li>
+</ul>
+<p><img src="/2019/02/16/Java基础第二章，java语言基础/2选择排序和冒泡排序.png" alt></p>
+<p>折半查找（二分法查找）仅适用于有序数组。如果找到，则返回下标；若没找到，惯例是返回-1。</p>
+<p>应用：在有序数组中插入一个值。</p>
+<pre><code>用折半查找法查找数组中是否有该元素key。
+若有，则插在返回的下标之后就可以；
+若无，则返回值是-1，且此时max&lt;min，key介于x[max] 和 x[min]之间，则min即为插入的key应有的下标。
+</code></pre><p><img src="/2019/02/16/Java基础第二章，java语言基础/2折半查找法.png" alt></p>
+<p><img src="/2019/02/16/Java基础第二章，java语言基础/2进制转换程序.png" alt></p>
+<p>打印数组需要用遍历，直接打印数组名称显示：</p>
+<p><img src="/2019/02/16/Java基础第二章，java语言基础/1.png" alt></p>
+<ul>
+<li>[ 表示一维数组，I表示数组类型为 int，@后是内存地址</li>
+<li>[[ 表示二维数组，C表示数组类型为 char</li>
+</ul>
+<h2 id="数组中的数组"><a href="#数组中的数组" class="headerlink" title="数组中的数组"></a>数组中的数组</h2><p>定义</p>
+<pre><code>int[][] arr = new int[3][2];
+int[][] arr = new int[3][];
+</code></pre><p>可以对这个三个一维数组分别进行初始化 arr[0] = new int[3]; 但是在这个初始化之前，默认初始化为 arr[0]=null; 所以此时打印arr[0]的地址为null</p>
+<p><img src="/2019/02/16/Java基础第二章，java语言基础/2数组内存结构.png" alt></p>
+<pre><code>int [][] arr = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12} }
+
+int [ ] x,y [ ]  其实就是  int [ ] x;  int [ ] y [ ] ,  y是二维数组
+</code></pre><p><img src="/2019/02/16/Java基础第二章，java语言基础/2二维数组内存中的存储.png" alt></p>
+<p>数组的属性 length</p>
+<ul>
+<li>arr.length  二维数组的行数</li>
+<li>arr[0].length  二维数组第一行的长度</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/毕向东/" rel="tag"># 毕向东</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/26/Java基础第一章，Java概述/" rel="next" title="Java语言基础第一章，Java概述">
+                <i class="fa fa-chevron-left"></i> Java语言基础第一章，Java概述
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/java多线程/" rel="prev" title="Java多线程">
+                Java多线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="黄敏">
+            
+              <p class="site-author-name" itemprop="name">黄敏</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关键字"><span class="nav-number">1.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标识符"><span class="nav-number">2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注释"><span class="nav-number">3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据类型"><span class="nav-number">4.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">4.0.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用数据类型"><span class="nav-number">4.0.2.</span> <span class="nav-text">引用数据类型</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#常量和变量"><span class="nav-number">5.</span> <span class="nav-text">常量和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常量：不能改变的数值"><span class="nav-number">5.1.</span> <span class="nav-text">常量：不能改变的数值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">5.1.1.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整数表现形式"><span class="nav-number">5.1.2.</span> <span class="nav-text">整数表现形式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">5.2.</span> <span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运算符"><span class="nav-number">6.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算数运算符"><span class="nav-number">6.1.</span> <span class="nav-text">算数运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值预算符"><span class="nav-number">6.2.</span> <span class="nav-text">赋值预算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">7.</span> <span class="nav-text">逻辑运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算符"><span class="nav-number">7.1.</span> <span class="nav-text">位运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程序流程控制"><span class="nav-number">8.</span> <span class="nav-text">程序流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断结构"><span class="nav-number">8.1.</span> <span class="nav-text">判断结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择结构"><span class="nav-number">8.2.</span> <span class="nav-text">选择结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环结构"><span class="nav-number">8.3.</span> <span class="nav-text">循环结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break-和-continue、"><span class="nav-number">8.4.</span> <span class="nav-text">break 和 continue、</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-7-函数"><span class="nav-number">9.</span> <span class="nav-text">2.7 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">9.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">9.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">9.3.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载"><span class="nav-number">9.4.</span> <span class="nav-text">重载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-8-数组"><span class="nav-number">10.</span> <span class="nav-text">2.8 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义-1"><span class="nav-number">10.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配及特点"><span class="nav-number">10.2.</span> <span class="nav-text">内存分配及特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作常见问题"><span class="nav-number">10.3.</span> <span class="nav-text">操作常见问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见操作"><span class="nav-number">10.4.</span> <span class="nav-text">常见操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组中的数组"><span class="nav-number">10.5.</span> <span class="nav-text">数组中的数组</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黄敏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
