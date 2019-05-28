@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,毕向东,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原创，转载请注明出处 面向对象概念理解面向对象 面向过程：强调的是功能行为，不断地使用函数，C语言 面向对象：将功能封装进对象，只要找到了对象，就可以使用对象中的功能  面向对象的特点 面向过程体现的是执行者，而面向对象体现的是指挥者（指挥对象做事情） 面向对象是一种更符合人们思考习惯的思想，可以将项目的上千个功能转换成上百个对象  以后开发先找对象及其功能，若没有，自己创建对象并将所需功能定义到">
+<meta name="keywords" content="Java,毕向东">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础第三章，面向对象">
+<meta property="og:url" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/index.html">
+<meta property="og:site_name" content="米轻轻&#39;blog">
+<meta property="og:description" content="原创，转载请注明出处 面向对象概念理解面向对象 面向过程：强调的是功能行为，不断地使用函数，C语言 面向对象：将功能封装进对象，只要找到了对象，就可以使用对象中的功能  面向对象的特点 面向过程体现的是执行者，而面向对象体现的是指挥者（指挥对象做事情） 面向对象是一种更符合人们思考习惯的思想，可以将项目的上千个功能转换成上百个对象  以后开发先找对象及其功能，若没有，自己创建对象并将所需功能定义到">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3对象内存结构.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3对象内存结构练习.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3面向对象与面向过程内存比较.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3匿名对象的内存情况.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3匿名对象作为实际参数.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3构造函数内存图解.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3this原理.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3this关键字应用.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3this区分同名变量.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3static内存图解.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3this区分同名变量.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3对象的初始化过程.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3饿汉式单例设计模式代码体现.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3懒汉式单例设计模式代码体现.png">
+<meta property="og:updated_time" content="2019-05-28T11:41:33.467Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基础第三章，面向对象">
+<meta name="twitter:description" content="原创，转载请注明出处 面向对象概念理解面向对象 面向过程：强调的是功能行为，不断地使用函数，C语言 面向对象：将功能封装进对象，只要找到了对象，就可以使用对象中的功能  面向对象的特点 面向过程体现的是执行者，而面向对象体现的是指挥者（指挥对象做事情） 面向对象是一种更符合人们思考习惯的思想，可以将项目的上千个功能转换成上百个对象  以后开发先找对象及其功能，若没有，自己创建对象并将所需功能定义到">
+<meta name="twitter:image" content="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/3对象内存结构.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/">
+
+
+
+
+
+  <title>Java基础第三章，面向对象 | 米轻轻'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">米轻轻'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/Java基础第三章，面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄敏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米轻轻'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java基础第三章，面向对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-29T16:35:06+08:00">
+                2019-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原创，转载请注明出处</p>
+<h1 id="面向对象概念"><a href="#面向对象概念" class="headerlink" title="面向对象概念"></a>面向对象概念</h1><h2 id="理解面向对象"><a href="#理解面向对象" class="headerlink" title="理解面向对象"></a>理解面向对象</h2><ul>
+<li>面向过程：强调的是功能行为，不断地使用函数，C语言</li>
+<li>面向对象：将功能封装进对象，只要找到了对象，就可以使用对象中的功能</li>
+</ul>
+<h2 id="面向对象的特点"><a href="#面向对象的特点" class="headerlink" title="面向对象的特点"></a>面向对象的特点</h2><ul>
+<li>面向过程体现的是执行者，而面向对象体现的是指挥者（指挥对象做事情）</li>
+<li>面向对象是一种更符合人们思考习惯的思想，可以将项目的上千个功能转换成上百个对象</li>
+</ul>
+<p>以后开发先找对象及其功能，若没有，自己创建对象并将所需功能定义到该对象中，便于以后复用。如果别人用，直接把我的.class文件给别人用就OK</p>
+<h2 id="面试对面向对象的理解"><a href="#面试对面向对象的理解" class="headerlink" title="面试对面向对象的理解"></a>面试对面向对象的理解</h2><p>答上面两大点 + 面试场景中的例子</p>
+<blockquote>
+<p>其实面试官您就是按照面向对象的思想在思考问题，您本身就可以开发项目，但是项目有可能比较大，一个人开发周期长。为了提高效率，您就需要有更多的具备着专业开发能力的人来帮助您做事情。这个人就是您所需的对象，只要调用这些对象的开发功能就可以完成项目，只要指挥他们做事情就可以了。这样大的项目就可以从复杂变简单，而面试官就可以从执行者变成指挥者，更符合我们的思考习惯。</p>
+</blockquote>
+<blockquote>
+<p>男朋友也是对象，具有赚钱、做饭、洗衣服的功能。</p>
+</blockquote>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
+<li>开发：不断的创建对象，使用对象，指挥对象做事情。</li>
+<li>设计：管理和维护对象之间的关系。</li>
+<li>面向对象的特征：封装(encapsulation)、继承(inheritance)、多态(polymorphism)</li>
+</ul>
+<h3 id="类与对象的关系"><a href="#类与对象的关系" class="headerlink" title="类与对象的关系"></a>类与对象的关系</h3><p>java中描述事物通过类的形式体现，类是具体事物的抽象，概念上的定义。对象即是该类事物实实在在存在的个体。<br>类的意义在于描述事物</p>
+<pre><code>class Car{
+    String clolr;    
+    int number;    
+    void run( ){    
+        System.out.print(&quot;小汽车可以跑跑&quot;);    
+    }    
+}
+</code></pre><p>类中的成员包括</p>
+<ul>
+<li>成员属性（成员变量）：对应类中的成员变量，就是数值或变量</li>
+<li>成员行为（函数）：对应类中的成员函数，又叫成员方法，实例方法</li>
+</ul>
+<p>特点：变量定义在类中，在函数外面；函数没有 public 和 static 的修饰；类中可以没有主函数</p>
+<h3 id="类与对象的关系-1"><a href="#类与对象的关系-1" class="headerlink" title="类与对象的关系"></a>类与对象的关系</h3><ul>
+<li>类：对事物的描述，需要体现属性和行为</li>
+<li>对象：该类事物创建的实例，通过对象调用具有的属性和行为</li>
+</ul>
+<h3 id="成员变量和局部变量的区别"><a href="#成员变量和局部变量的区别" class="headerlink" title="成员变量和局部变量的区别"></a>成员变量和局部变量的区别</h3><ul>
+<li><p>定义的位置不同</p>
+<ul>
+<li>成员变量定义在类中，在整个类中都可以被访问。</li>
+<li>局部变量只定义在局部范围内，如：函数内，语句内等。</li>
+</ul>
+</li>
+<li><p>在内存中的位置不同</p>
+<ul>
+<li>成员变量存在于堆内存的对象中。</li>
+<li>局部变量存在于栈内存的方法中。</li>
+</ul>
+</li>
+<li><p>生命周期不同</p>
+<ul>
+<li>成员变量随着对象的建立而建立，随着对象的消失而消失，</li>
+<li>局部变量随着方法的运行而出现，随着方法的弹栈而消失。</li>
+</ul>
+</li>
+<li><p>初始化不同</p>
+<ul>
+<li>成员变量有默认初始化值。</li>
+<li>局部变量没有默认初始化值，必须初始化后才可以使用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建并使用对象"><a href="#创建并使用对象" class="headerlink" title="创建并使用对象"></a>创建并使用对象</h3><pre><code>class Car  { //对Car这类事物进行描述    
+    String color = &quot;red&quot;;    
+    int num = 4;    
+    void show()    
+    {    
+        System.out.println(color+&quot;.&quot;+num);    
+    }    
+}    
+
+class CarDemo {    
+    public static void main(String[] args)     {
+        Car c = new Car();//建立对象    
+        c.color = &quot;black&quot;;//修改对象属性
+        c.show();//使用对象的功能。    
+    }    
+}
+</code></pre><h3 id="对象内存结构"><a href="#对象内存结构" class="headerlink" title="对象内存结构"></a>对象内存结构</h3><p><img src="/2019/12/29/Java基础第三章，面向对象/3对象内存结构.png" alt="对象内存结构"><br><img src="/2019/12/29/Java基础第三章，面向对象/3对象内存结构练习.png" alt="对象内存结构"><br><img src="/2019/12/29/Java基础第三章，面向对象/3面向对象与面向过程内存比较.png" alt="面向对象与面向过程内存比较"></p>
+<h3 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h3><p>匿名对象是对象的简化形式</p>
+<p>Car c = new Car( ); c.run( ); 简化成 new Car( ).run( );，可以简化书写<br>由图匿名对象的内存情况 可知，对匿名对象调用属性是没有意义的</p>
+<p><img src="/2019/12/29/Java基础第三章，面向对象/3匿名对象的内存情况.png" alt="匿名对象的内存情况"></p>
+<p>匿名对象两种使用情况</p>
+<ul>
+<li>当<strong>对对象方法仅进行一次调用</strong>的时，匿名对象可以简化书写；但如果堆对象进行多个成员调用时，必须给对象起名字</li>
+<li>匿名对象可以作为实际参数进行传递</li>
+</ul>
+<p><img src="/2019/12/29/Java基础第三章，面向对象/3匿名对象作为实际参数.png" alt></p>
+<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><p>###表现<br>函数、类都是封装体，（电脑主机机箱也可以理解为一个封装体）</p>
+<h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><ul>
+<li>隐藏了实现细节，仅对外提供可以访问的方式，便于调用者的使用。（定义）</li>
+<li>提高代码的复用性</li>
+</ul>
+<h3 id="封装原则"><a href="#封装原则" class="headerlink" title="封装原则"></a>封装原则</h3><p>将不需要对外提供的内容都隐藏起来；把属性都隐藏，提供公共方法对其访问。</p>
+<h3 id="private关键字"><a href="#private关键字" class="headerlink" title="private关键字"></a>private关键字</h3><ul>
+<li>是一个权限修饰符；用于修饰成员(成员变量和成员函数)；被私有化的成员<strong>只在本类中有效</strong>，<strong>类外不可访问</strong></li>
+<li>常用于类中不需要对外提供的内容（包括属性和行为）都私有化。</li>
+<li>属性全部私有化，<strong>对外提供对应的setXxx，getXxx方法对其进行访问。</strong>可以在set方法中加入逻辑判断，保证其合法性和合理性，若不合法抛出异常中断程序，提高对数据访问的安全性</li>
+</ul>
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>在对象创建时，对对象进行初始化。new的同时初始化</p>
+<h3 id="何时使用构造函数？"><a href="#何时使用构造函数？" class="headerlink" title="何时使用构造函数？"></a>何时使用构造函数？</h3><p>如果对象一产生本身就需要具备一些内容，那么就需要用到构造函数</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>没有返回值类型也没有返回值，因为构造对象创建完就结束，不需要结果。void也不要写，因为要有区别于一般函数</li>
+<li>构造函数是有 return; 语句的，用于结束初始化动作的。或也可以放在逻辑判断中用于提前结束初始化动作</li>
+<li>构造函数名称和类名一致</li>
+</ul>
+<p><img src="/2019/12/29/Java基础第三章，面向对象/3构造函数内存图解.png" alt></p>
+<h3 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h3><p>定义：只要定义一个类，该类中默认就有一个空参数的构造函数，是编译器编译时添加到class文件中的。但是如果在类中自定义了构造函数，那么默认的空参数的构造函数编译器就不会自动添加。</p>
+<p>原理：没有定义对象的初始化过程，编译器会添加一个默认的初始化过程；如果定义了指定对象的初始化过程，默认的就不添加了。</p>
+<h3 id="构造函数的细节"><a href="#构造函数的细节" class="headerlink" title="构造函数的细节"></a>构造函数的细节</h3><ul>
+<li>一个类中可以有多个构造函数，他们是以重载的方式存在的（函数名相同，参数列表不同）</li>
+<li>构造函数是有return语句的，用于结束初始化动作的。或也可以放在逻辑判断中用于提前结束初始化动作</li>
+<li><strong>构造函数是能被private修饰的，这样该类的对象只能在本类中创建，其他程序new一个对象时会报错无法访问</strong></li>
+<li>一般函数不能调用构造函数，但是构造函数可以调用一般函数</li>
+</ul>
+<h3 id="构造函数和一般函数的区别"><a href="#构造函数和一般函数的区别" class="headerlink" title="构造函数和一般函数的区别"></a>构造函数和一般函数的区别</h3><p>运行上</p>
+<ul>
+<li>构造函数：对象一创建就会自动调用相应的构造函数</li>
+<li>一般函数：对象创建后，手动调用所需的一般函数</li>
+</ul>
+<p>调用次数</p>
+<ul>
+<li>构造函数：在对象创建时仅调用一次（初始化动作只做一次而且先执行）</li>
+<li>一般方法：可以被对象调用多次</li>
+</ul>
+<p>名称</p>
+<ul>
+<li>构造函数和类名相同，类名的书写规范是首字母大写</li>
+<li>一般函数命名规范是首字母小写，第二个单词往后单词首字母大写</li>
+</ul>
+<h3 id="构造函数之间的调用"><a href="#构造函数之间的调用" class="headerlink" title="构造函数之间的调用"></a>构造函数之间的调用</h3><pre><code>class Person{        
+    private int age;    
+    private String name;    
+
+    private Person(int a) {    
+        age = a;    
+    }    
+
+    Person(String n, int a) {    
+        this(a);    //调用Person(int a)构造函数    
+        name = n;    
+    }    
+}
+</code></pre><ul>
+<li>this(实参列表);就会调用对应的构造函数，而不能像一般方法那样直接写函数名调用</li>
+<li>调用其它构造函数的语句必须定义在构造函数的第一行，否则会报错，因为初始话动作要先执行</li>
+<li>一个构造函数中不能调用两个构造函数，和第二行原则冲突</li>
+<li>两个构造函数不能互相调用，会陷入死循环，一直调用，栈内存只进不出，导致栈内存溢出</li>
+</ul>
+<h1 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h1><p>特点：this代表其所在函数所属对象的引用。哪个对象调用了this所在的函数，this就代表了哪个对象</p>
+<p>this原理：this关键字来记录住对象的地址，并通过this来明确被初始化的对象。</p>
+<p><img src="/2019/12/29/Java基础第三章，面向对象/3this原理.png" alt></p>
+<p>作用</p>
+<ul>
+<li>当在函数内需要用到调用该函数的对象时，就用this。</li>
+<li>用this标识哪个变量是成员变量，此时this可以省略。但是当局部变量和成员变量同名时，必须用this表示成员变量。</li>
+</ul>
+<p><img src="/2019/12/29/Java基础第三章，面向对象/3this关键字应用.png" alt="this关键字应用"><br><img src="/2019/12/29/Java基础第三章，面向对象/3this区分同名变量.png" alt="this区分同名变量"></p>
+<p><strong>题：静态方法中不能用this，因为静态方法直接被类调用，而this指代的是对象</strong></p>
+<h1 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>创建对象就是为了产生实例，并进行数据的封装。而调用功能时，却没有用到这些对象中封装的数据，虽然可以编译并运行，但是该对象的创建没有意义，并且会浪费堆内存中的空间。举例来说：若类中有一个函数 </p>
+<pre><code>public void sleep( ){ print(&quot;zzz&quot;); } 
+</code></pre><p>该函数没有调用成员变量。那么当创建多个实例的时候，new仍会在对内存中开辟空间，但是开辟的空间存储的成员变量没有被使用。</p>
+<h2 id="修饰函数"><a href="#修饰函数" class="headerlink" title="修饰函数"></a>修饰函数</h2><p>这是一个成员修饰符（成员变量和成员函数），被static修饰的方法除了可以被对象调用外，还可以被类名直接调用，此时没有new对象，也就不会在堆内存中开辟空间，存放成员变量。</p>
+<p>什么时候使用静态变量？如果功能不需要访问来中定义的成员变量（非静态）时，该功能就需要静态修饰。虽然不用静态修饰也可以编译运行，但是浪费堆内存空间</p>
+<h2 id="静态修饰方法"><a href="#静态修饰方法" class="headerlink" title="静态修饰方法"></a>静态修饰方法</h2><p>静态方法只能访问静态成员，但是非静态方法即可以访问静态成员，又能访问非静态成员。</p>
+<p>静态方法中不允许出现 this，super 关键字</p>
+<p>静态方法可以被对象调用，但是很业余。专业的做法就是用类调用。因此静态方法也叫类方法</p>
+<p>原理</p>
+<ul>
+<li>静态是随着类的加载就加载了，随着类的消失而消失</li>
+<li>静态优先于对象存在，被对象共享。</li>
+<li>因为静态先存在于内存中，无法访问后来的对象中的数据，所以静态无法访问非静态，而且内部无法书写this，因为这时对象有可能不存在，this没有任何指向</li>
+</ul>
+<h2 id="静态修饰变量"><a href="#静态修饰变量" class="headerlink" title="静态修饰变量"></a>静态修饰变量</h2><p>该成员变量的值，每个对象都有且一致时，就对该成员变量进行静态修饰</p>
+<p>与成员变量的区别</p>
+<ul>
+<li>所属范围不同：静态变量所属于类，成员变量所属于对象。因此静态变量又叫类变量，成员变量也叫实例变量</li>
+<li>调用不同：静态变量可以被对象和类调用（一般都用类名调用）；成员变量只能被对象调用</li>
+<li>加载时期不同：静态变量随类加载而加载，成员变量随着对象加载</li>
+<li>存储区域不同：静态变量存储在方法区中，成员变量存储在堆内存中。</li>
+</ul>
+<p><img src="/2019/12/29/Java基础第三章，面向对象/3static内存图解.png" alt></p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><h3 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h3><ul>
+<li>写在类中 static { }</li>
+<li><strong>随着类的加载而执行</strong>，因为类仅加载一次，所以静态代码块只执行一次</li>
+<li>用于给类进行初始化</li>
+<li>静态代码块在静态变量显示初始化之后再执行</li>
+</ul>
+<h3 id="构造代码块"><a href="#构造代码块" class="headerlink" title="构造代码块"></a>构造代码块</h3><ul>
+<li>写在类中 { }</li>
+<li>只要创建对象，就会被调用，给所有对象初始化。而构造函数只给对应的对象（对应参数列表）初始化</li>
+<li>作用：里面可以定义不同构造函数的共性代码</li>
+</ul>
+<h3 id="局部代码块"><a href="#局部代码块" class="headerlink" title="局部代码块"></a>局部代码块</h3><ul>
+<li>写在方法中 { }</li>
+<li>作用：可以控制局部变量的生命周期，用完直接释放掉</li>
+</ul>
+<p><img src="/2019/12/29/Java基础第三章，面向对象/3this区分同名变量.png" alt></p>
+<h2 id="静态的主函数"><a href="#静态的主函数" class="headerlink" title="静态的主函数"></a>静态的主函数</h2><p>主函数是静态的，因此要想被主函数直接调用，函数必须是静态的。</p>
+<p>若函数不是静态的，只能在主函数中创建一个函数所在类的对象，通过对象调用非静态函数</p>
+<pre><code>public static void main(String [] args)
+
+    public： 权限足够大
+    static：不需要对象，直接用给定的类名就可访问：Demo.main
+    void：虚拟机调用主函数，虚拟机不需要main的主函数
+    main：函数名，该名字是固定的
+    String [] args：主函数的参数列表：字符串属性类型的参数
+    args：arguments：变量名，可以自定义，只不过人们约定俗成就这么用
+</code></pre><h3 id="被static修饰后的特点"><a href="#被static修饰后的特点" class="headerlink" title="被static修饰后的特点"></a>被static修饰后的特点</h3><p>随着类的加载而加载；优先于对象存在；被所有对象所共享；可以直接被类名调用</p>
+<h3 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h3><p>静态方法只能访问静态成员；静态方法中不可以写this，super关键字；主函数是静态的</p>
+<h1 id="对象的创建过程"><a href="#对象的创建过程" class="headerlink" title="对象的创建过程"></a>对象的创建过程</h1><p><img src="/2019/12/29/Java基础第三章，面向对象/3对象的初始化过程.png" alt></p>
+<p>加载Demo.class文件进方法区，并进行内存分配</p>
+<p>如果有静态变量先默认初始化，再显示初始化（赋值），<strong>如果有静态代码块，要执行仅一次</strong></p>
+<p>通过new，在堆内存中开辟空间，并明确首地址值，对对象中的属性进行默认初始化</p>
+<p>调用对应的构造函数进行初始化</p>
+<ul>
+<li>调用父类构造函数super（）</li>
+<li>成员变量的显示初始化（给默认初始化赋值）</li>
+<li>构造代码块初始化 { }</li>
+<li>构造函数内的自定义初始化</li>
+</ul>
+<p>对象初始化完毕后，将地址赋值给d引用变量</p>
+<h1 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>解决某一类问题行之有效的解决办法，强调思想而非代码。业界有23种设计模式，我们学的是其中的单例（Singleton）设计模式</p>
+<h2 id="单例设计模式-1"><a href="#单例设计模式-1" class="headerlink" title="单例设计模式"></a>单例设计模式</h2><p>解决的问题？保证一个类的对象唯一性</p>
+<p>使用场景：多个程序都要使用一个配置文件种的数据，且要实现数据共享和交换。这就必须要将这多个数据封装到一个对象中，且多个程序操作的是同一个对象，那也就说必须保证这个配置文件对象的唯一性。</p>
+<h2 id="怎样保证对象的唯一性？"><a href="#怎样保证对象的唯一性？" class="headerlink" title="怎样保证对象的唯一性？"></a>怎样保证对象的唯一性？</h2><ul>
+<li>一个类只要提供了构造函数，就可以产生多个对象，完全无法保证对象唯一。既然数量不可控，干脆不让其他程序建立对象</li>
+<li>不让其他程序创建，对象何在？干脆自己再本类中创建一个对象，这样就可控了。</li>
+<li>创建完成后，需要给其他程序提供访问的方式</li>
+</ul>
+<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><ul>
+<li>不让其他程序创建对象？直接私有化构造函数，不让其他程序创建的对象初始化。</li>
+<li>直接在本类中new一个本类的对象</li>
+<li>定义一个功能，其他程序可以通过这个功能获取到本类的对象</li>
+</ul>
+<h2 id="代码体现"><a href="#代码体现" class="headerlink" title="代码体现"></a>代码体现</h2><p><img src="/2019/12/29/Java基础第三章，面向对象/3饿汉式单例设计模式代码体现.png" alt="饿汉式单例设计模式代码体现"><br><img src="/2019/12/29/Java基础第三章，面向对象/3懒汉式单例设计模式代码体现.png" alt="懒汉式单例设计模式代码体现"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/毕向东/" rel="tag"># 毕向东</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/27/Java基础第二章，java语言基础/" rel="next" title="Java基础第二章，java语言基础">
+                <i class="fa fa-chevron-left"></i> Java基础第二章，java语言基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="黄敏">
+            
+              <p class="site-author-name" itemprop="name">黄敏</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象概念"><span class="nav-number">1.</span> <span class="nav-text">面向对象概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解面向对象"><span class="nav-number">1.1.</span> <span class="nav-text">理解面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象的特点"><span class="nav-number">1.2.</span> <span class="nav-text">面向对象的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试对面向对象的理解"><span class="nav-number">1.3.</span> <span class="nav-text">面试对面向对象的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象"><span class="nav-number">1.4.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类与对象的关系"><span class="nav-number">1.4.1.</span> <span class="nav-text">类与对象的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类与对象的关系-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">类与对象的关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员变量和局部变量的区别"><span class="nav-number">1.4.3.</span> <span class="nav-text">成员变量和局部变量的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建并使用对象"><span class="nav-number">1.4.4.</span> <span class="nav-text">创建并使用对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象内存结构"><span class="nav-number">1.4.5.</span> <span class="nav-text">对象内存结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名对象"><span class="nav-number">1.4.6.</span> <span class="nav-text">匿名对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#封装"><span class="nav-number">2.</span> <span class="nav-text">封装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#好处"><span class="nav-number">2.0.1.</span> <span class="nav-text">好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装原则"><span class="nav-number">2.0.2.</span> <span class="nav-text">封装原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#private关键字"><span class="nav-number">2.0.3.</span> <span class="nav-text">private关键字</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#构造函数"><span class="nav-number">3.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用"><span class="nav-number">3.0.1.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#何时使用构造函数？"><span class="nav-number">3.0.2.</span> <span class="nav-text">何时使用构造函数？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">3.0.3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认构造函数"><span class="nav-number">3.0.4.</span> <span class="nav-text">默认构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数的细节"><span class="nav-number">3.0.5.</span> <span class="nav-text">构造函数的细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数和一般函数的区别"><span class="nav-number">3.0.6.</span> <span class="nav-text">构造函数和一般函数的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数之间的调用"><span class="nav-number">3.0.7.</span> <span class="nav-text">构造函数之间的调用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this关键字"><span class="nav-number">4.</span> <span class="nav-text">this关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#static关键字"><span class="nav-number">5.</span> <span class="nav-text">static关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">5.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰函数"><span class="nav-number">5.2.</span> <span class="nav-text">修饰函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态修饰方法"><span class="nav-number">5.3.</span> <span class="nav-text">静态修饰方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态修饰变量"><span class="nav-number">5.4.</span> <span class="nav-text">静态修饰变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">5.5.</span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态代码块"><span class="nav-number">5.5.1.</span> <span class="nav-text">静态代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造代码块"><span class="nav-number">5.5.2.</span> <span class="nav-text">构造代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部代码块"><span class="nav-number">5.5.3.</span> <span class="nav-text">局部代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态的主函数"><span class="nav-number">5.6.</span> <span class="nav-text">静态的主函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#被static修饰后的特点"><span class="nav-number">5.6.1.</span> <span class="nav-text">被static修饰后的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用注意"><span class="nav-number">5.6.2.</span> <span class="nav-text">使用注意</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象的创建过程"><span class="nav-number">6.</span> <span class="nav-text">对象的创建过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单例设计模式"><span class="nav-number">7.</span> <span class="nav-text">单例设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">7.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单例设计模式-1"><span class="nav-number">7.2.</span> <span class="nav-text">单例设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎样保证对象的唯一性？"><span class="nav-number">7.3.</span> <span class="nav-text">怎样保证对象的唯一性？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现步骤"><span class="nav-number">7.4.</span> <span class="nav-text">实现步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码体现"><span class="nav-number">7.5.</span> <span class="nav-text">代码体现</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黄敏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
