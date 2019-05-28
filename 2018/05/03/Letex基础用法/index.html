@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="写论文,Letex,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原创，转载请注明出处 latex中如何输入下划线默认情况下，latex会将下划线 “_“ 解释为数学模式中的下标表示的一部分，这种处理很多情况下是非常不爽的，比如代码中的下划线变量：host_name之类的。虽然可以用“host_name”之类的方法解决，但不易读。">
+<meta name="keywords" content="写论文,Letex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Letex基础用法">
+<meta property="og:url" content="http://yoursite.com/2018/05/03/Letex基础用法/index.html">
+<meta property="og:site_name" content="米轻轻&#39;blog">
+<meta property="og:description" content="原创，转载请注明出处 latex中如何输入下划线默认情况下，latex会将下划线 “_“ 解释为数学模式中的下标表示的一部分，这种处理很多情况下是非常不爽的，比如代码中的下划线变量：host_name之类的。虽然可以用“host_name”之类的方法解决，但不易读。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/05/03/Letex基础用法/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/03/Letex基础用法/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/03/Letex基础用法/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/03/Letex基础用法/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/03/Letex基础用法/5.png">
+<meta property="og:updated_time" content="2019-05-28T07:02:50.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Letex基础用法">
+<meta name="twitter:description" content="原创，转载请注明出处 latex中如何输入下划线默认情况下，latex会将下划线 “_“ 解释为数学模式中的下标表示的一部分，这种处理很多情况下是非常不爽的，比如代码中的下划线变量：host_name之类的。虽然可以用“host_name”之类的方法解决，但不易读。">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/03/Letex基础用法/2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/03/Letex基础用法/">
+
+
+
+
+
+  <title>Letex基础用法 | 米轻轻'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">米轻轻'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/Letex基础用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄敏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米轻轻'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Letex基础用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T14:49:25+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/写论文/" itemprop="url" rel="index">
+                    <span itemprop="name">写论文</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原创，转载请注明出处</p>
+<h2 id="latex中如何输入下划线"><a href="#latex中如何输入下划线" class="headerlink" title="latex中如何输入下划线"></a>latex中如何输入下划线</h2><p>默认情况下，latex会将下划线 “_“ 解释为数学模式中的下标表示的一部分，这种处理很多情况下是非常不爽的，比如代码中的下划线变量：<br>host_name之类的。虽然可以用“host_name”之类的方法解决，但不易读。 </p>
+<a id="more"></a>
+<h2 id="LaTeX中插入Visio图片"><a href="#LaTeX中插入Visio图片" class="headerlink" title="LaTeX中插入Visio图片"></a>LaTeX中插入Visio图片</h2><ul>
+<li>在Visio中画好图，然后依次选择“设计”-&gt;“大小”-&gt;“适应绘图”。然后另存为pdf文件；</li>
+<li>在LaTeX中插入该pdf图片即可。</li>
+</ul>
+<p>图片自适应宽度</p>
+<pre><code>\begin{figure}
+  \includegraphics[width=\linewidth]{picture/1}
+\caption{Emotion-space-time ontology model in intelligent space}
+\label{fig:1}       % Give a unique label
+\end{figure}
+</code></pre><h2 id="科学计数法"><a href="#科学计数法" class="headerlink" title="科学计数法"></a>科学计数法</h2><pre><code>$3.64 \times 10^{-5}$
+</code></pre><h2 id="常用数学符号："><a href="#常用数学符号：" class="headerlink" title="常用数学符号："></a>常用数学符号：</h2><p><a href="http://mohu.org/info/symbols/symbols.htm" target="_blank" rel="noopener">http://mohu.org/info/symbols/symbols.htm </a></p>
+<h2 id="插入带下标的公式："><a href="#插入带下标的公式：" class="headerlink" title="插入带下标的公式："></a>插入带下标的公式：</h2><pre><code>\begin{equation}
+Score_{SURF} = \sigma r_1 + (1 - \sigma)r_2\label{M}
+\end{equation}
+</code></pre><p><img src="/2018/05/03/Letex基础用法/2.png" alt></p>
+<h2 id="文本中需要公式型的式子，例如带下标的字母怎么办？"><a href="#文本中需要公式型的式子，例如带下标的字母怎么办？" class="headerlink" title="文本中需要公式型的式子，例如带下标的字母怎么办？"></a>文本中需要公式型的式子，例如带下标的字母怎么办？</h2><pre><code>$F_q$，$\sigma$
+</code></pre><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><h3 id="表格注释"><a href="#表格注释" class="headerlink" title="表格注释"></a>表格注释</h3><p>最前面导入 \usepackage{threeparttable}</p>
+<pre><code>\begin{tabular}{ c c c c c }            #无竖线栏
+\begin{tabular}{| c | c | c | c | c |}    #有竖线栏
+</code></pre><p><img src="/2018/05/03/Letex基础用法/1.png" alt></p>
+<h3 id="表格代码"><a href="#表格代码" class="headerlink" title="表格代码"></a>表格代码</h3><pre><code>\begin{table}[htbp]
+\caption{Results of Cross-Validation}
+\begin{center}
+\begin{tabular}{ c c c c c }
+\hline
+
+\textbf{} &amp; \textbf{\textit{RC}}&amp; \textbf{\textit{WE}}&amp; \textbf{\textit{RC*}}&amp; \textbf{\textit{WE*}} \\
+\hline
+TP &amp; 757 &amp; 570 &amp; 772 &amp; 588 &amp; \\
+EP &amp; 31 &amp; 5 &amp; 22 &amp; 2 &amp; \\
+P &amp; 794 &amp; 597 &amp; 794 &amp; 597 &amp; \\
+recall &amp; 95.34\% &amp; 95.48\% &amp; 97.23\% &amp; 98.49\%  &amp;\\
+precision &amp; 96.07\% &amp; 99.13\% &amp; 97.23\%  &amp; 99.66\% \\
+\hline
+
+\end{tabular}
+\label{tab1}
+\end{center}
+\end{table}
+</code></pre><p><img src="/2018/05/03/Letex基础用法/3.png" alt></p>
+<h3 id="限制每列的长度，过长自动换行，并水平垂直居中"><a href="#限制每列的长度，过长自动换行，并水平垂直居中" class="headerlink" title="限制每列的长度，过长自动换行，并水平垂直居中"></a>限制每列的长度，过长自动换行，并水平垂直居中</h3><p>参考文章：<a href="http://www.dreamflier.net/blog/user1/3/2637.html" target="_blank" rel="noopener">http://www.dreamflier.net/blog/user1/3/2637.html</a></p>
+<h4 id="在第一行导入包"><a href="#在第一行导入包" class="headerlink" title="在第一行导入包"></a>在第一行导入包</h4><pre><code>\usepackage{array}
+\begin{tabular}{ m{1.2cm}&lt;{\centering}  c  c m{1.4cm}&lt;{\centering}  m{1.5cm}&lt;{\centering} }
+</code></pre><h2 id="使用图片"><a href="#使用图片" class="headerlink" title="使用图片"></a>使用图片</h2><p>在网站上新建一个文件夹，把需要的图片上传。用的时候不需要带后缀名</p>
+<p><img src="/2018/05/03/Letex基础用法/4.png" alt></p>
+<h4 id="有的论文要求更改图片像素为300dpi"><a href="#有的论文要求更改图片像素为300dpi" class="headerlink" title="有的论文要求更改图片像素为300dpi"></a>有的论文要求更改图片像素为300dpi</h4><p>用photoshop。如果ps打不开图片，就换一下图片格式</p>
+<p>图像-图像大小，如下操作。另存为指定格式就行啦</p>
+<p><img src="/2018/05/03/Letex基础用法/5.png" alt></p>
+<h2 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h2><p>昨晚上课，觉得张伟老师说的很多东西都深得我心啊</p>
+<p>首先他说做科研需要注意的几点事项：</p>
+<ul>
+<li>用Google不用百度</li>
+<li>用GMail不用一些乱七八糟的邮箱</li>
+<li>写论文用latax</li>
+</ul>
+<p>然后他说的一个他的经验，不要抱着一大本书就开始看，并不是读书无用论，而是哪有时间给你看一大本书？用到什么就去查就好了。大家做出成果的，也不都是什么都很清晰，也是什么也不太懂，但就是做出来了。然后过了一段时间再回去看，就会觉得比之前清晰一点了。</p>
+<p>因为我自己做的时候就深有感触，我觉得平时看的东西/做的东西都不少，比方说SQL语句吧，平时用的很多，但是用的不深，了解的也都是浮于表面。但是为什么要理解深呢？我们是工科，会用就行了，不必纠结于细节。</p>
+<h1 id="不求甚解"><a href="#不求甚解" class="headerlink" title="不求甚解"></a>不求甚解</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/写论文/" rel="tag"># 写论文</a>
+          
+            <a href="/tags/Letex/" rel="tag"># Letex</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/08/类变量、成员变量和成员函数的局部变量使用/" rel="next" title="类变量、成员变量和成员函数的局部变量使用">
+                <i class="fa fa-chevron-left"></i> 类变量、成员变量和成员函数的局部变量使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/java多线程/" rel="prev" title="Java多线程">
+                Java多线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="黄敏">
+            
+              <p class="site-author-name" itemprop="name">黄敏</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#latex中如何输入下划线"><span class="nav-number">1.</span> <span class="nav-text">latex中如何输入下划线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LaTeX中插入Visio图片"><span class="nav-number">2.</span> <span class="nav-text">LaTeX中插入Visio图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#科学计数法"><span class="nav-number">3.</span> <span class="nav-text">科学计数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用数学符号："><span class="nav-number">4.</span> <span class="nav-text">常用数学符号：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入带下标的公式："><span class="nav-number">5.</span> <span class="nav-text">插入带下标的公式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本中需要公式型的式子，例如带下标的字母怎么办？"><span class="nav-number">6.</span> <span class="nav-text">文本中需要公式型的式子，例如带下标的字母怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">7.</span> <span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表格注释"><span class="nav-number">7.1.</span> <span class="nav-text">表格注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格代码"><span class="nav-number">7.2.</span> <span class="nav-text">表格代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制每列的长度，过长自动换行，并水平垂直居中"><span class="nav-number">7.3.</span> <span class="nav-text">限制每列的长度，过长自动换行，并水平垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在第一行导入包"><span class="nav-number">7.3.1.</span> <span class="nav-text">在第一行导入包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用图片"><span class="nav-number">8.</span> <span class="nav-text">使用图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有的论文要求更改图片像素为300dpi"><span class="nav-number">8.0.1.</span> <span class="nav-text">有的论文要求更改图片像素为300dpi</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#补充："><span class="nav-number">9.</span> <span class="nav-text">补充：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不求甚解"><span class="nav-number"></span> <span class="nav-text">不求甚解</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黄敏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

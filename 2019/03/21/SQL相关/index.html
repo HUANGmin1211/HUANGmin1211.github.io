@@ -79,18 +79,22 @@
 
 
 
-<meta name="description" content="原创，转载请注明出处">
+<meta name="description" content="放在最前面的常用语法——增删改查SELECT column_name,column_name FROM table_name WHERE id = 1; SELECT column_name,column_name FROM table_name WHERE id in (1，2); SELECT column_name,column_name FROM table_name WHERE id b">
 <meta name="keywords" content="数据库,SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解Jvm">
+<meta property="og:title" content="SQL学习总结">
 <meta property="og:url" content="http://yoursite.com/2019/03/21/SQL相关/index.html">
 <meta property="og:site_name" content="米轻轻&#39;blog">
-<meta property="og:description" content="原创，转载请注明出处">
+<meta property="og:description" content="放在最前面的常用语法——增删改查SELECT column_name,column_name FROM table_name WHERE id = 1; SELECT column_name,column_name FROM table_name WHERE id in (1，2); SELECT column_name,column_name FROM table_name WHERE id b">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-28T03:42:03.833Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/SQL相关/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/SQL相关/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/SQL相关/3.png">
+<meta property="og:updated_time" content="2019-05-28T06:47:44.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解Jvm">
-<meta name="twitter:description" content="原创，转载请注明出处">
+<meta name="twitter:title" content="SQL学习总结">
+<meta name="twitter:description" content="放在最前面的常用语法——增删改查SELECT column_name,column_name FROM table_name WHERE id = 1; SELECT column_name,column_name FROM table_name WHERE id in (1，2); SELECT column_name,column_name FROM table_name WHERE id b">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/21/SQL相关/1.png">
 
 
 
@@ -126,7 +130,7 @@
 
 
 
-  <title>深入理解Jvm | 米轻轻'blog</title>
+  <title>SQL学习总结 | 米轻轻'blog</title>
   
 
 
@@ -280,7 +284,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入理解Jvm</h1>
+          <h1 class="post-title" itemprop="name headline">SQL学习总结</h1>
         
 
         <div class="post-meta">
@@ -352,8 +356,76 @@
       
 
       
-        <p>原创，转载请注明出处</p>
+        <h1 id="放在最前面的常用语法——增删改查"><a href="#放在最前面的常用语法——增删改查" class="headerlink" title="放在最前面的常用语法——增删改查"></a>放在最前面的常用语法——增删改查</h1><pre><code>SELECT column_name,column_name FROM table_name WHERE id = 1;
+SELECT column_name,column_name FROM table_name WHERE id in (1，2);
+SELECT column_name,column_name FROM table_name WHERE id between 4 and 59;    
 
+INSERT ISQLNTO table_name (column1,column2,column3,...) VALUES (value1,value2,value3,...);
+
+UPDATE table_name  SET column1=value1,column2=value2   WHERE some_column=some_value;
+
+DELETE FROM table_name  WHERE some_column=some_value;
+</code></pre><a id="more"></a>
+<h1 id="SQL-简介"><a href="#SQL-简介" class="headerlink" title="SQL 简介"></a>SQL 简介</h1><p>SQL 是用于访问和处理数据库的标准的计算机语言</p>
+<ul>
+<li>SQL，指结构化查询语言，全称是 Structured Query Language。</li>
+<li>SQL 让您可以访问和处理数据库，在数据库上执行的大部分工作都由 SQL 语句完成。</li>
+</ul>
+<h2 id="数据库表"><a href="#数据库表" class="headerlink" title="数据库表"></a>数据库表</h2><p>一个数据库通常包含一个或多个表。每个表由一个名字标识,表包含带有数据的记录（行）。在本教程中，我们在 MySQL 的 RUNOOB 数据库中创建了 Websites 表，用于存储网站记录。我们可以通过以下命令查看 “Websites” 表的数据：<br><img src="/2019/03/21/SQL相关/1.png" alt></p>
+<ul>
+<li>use RUNOOB; 命令用于选择数据库。</li>
+<li>set names utf8; 命令用于设置使用的字符集。</li>
+<li>SELECT * FROM Websites; 从website表中选取所有记录。</li>
+<li>上面的表包含五条记录（每一条对应一个网站信息）和5个列（id、name、url、alexa 和country）。</li>
+<li>SQL 语句后面的分号:某些数据库系统要求在每条 SQL 语句的末端使用分号，分号是在数据库系统中分隔每条 SQL 语句的标准方法。</li>
+</ul>
+<h2 id="一些最重要的-SQL-命令"><a href="#一些最重要的-SQL-命令" class="headerlink" title="一些最重要的 SQL 命令"></a>一些最重要的 SQL 命令</h2><pre><code>SELECT - 从数据库中提取数据
+UPDATE - 更新数据库中的数据
+DELETE - 从数据库中删除数据
+INSERT INTO - 向数据库中插入新数据
+CREATE DATABASE - 创建新数据库
+ALTER DATABASE - 修改数据库
+CREATE TABLE - 创建新表
+ALTER TABLE - 变更（改变）数据库表
+DROP TABLE - 删除表
+CREATE INDEX - 创建索引（搜索键）
+DROP INDEX - 删除索引 
+</code></pre><h1 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h1><h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><p>SELECT 语句用于从数据库中选取数据。结果被存储在一个结果表中，称为结果集。</p>
+<pre><code>语法：SELECT column_name,column_name FROM table_name;
+     SELECT * FROM table_name;            // 下右
+     SELECT name,country FROM Websites;    //下左
+</code></pre><p><img src="/2019/03/21/SQL相关/2.png" alt></p>
+<p>在同一个字段中选多个值作为查询条件：</p>
+<pre><code>sql =&apos;select food from calories where id in (%d,%d)&apos; %(1,2)
+</code></pre><p><strong>SELECT DISTINCT：</strong><br>在表中，一个列可能会包含多个重复值，有时您也许希望仅仅列出不同（distinct）的值。SELECT DISTINCT 语句用于<strong>返回唯一不同的值</strong>。</p>
+<h2 id="WHERE-AND-OR"><a href="#WHERE-AND-OR" class="headerlink" title="WHERE, AND,  OR"></a>WHERE, AND,  OR</h2><p>WHERE 子句用于提取那些满足指定标准的记录。<br>AND &amp; OR 运算符用于基于一个以上的条件对记录进行过滤。</p>
+<pre><code>SELECT * FROM Websites WHERE country=&apos;CN&apos;;  //CN为文本，需加 &apos;单引号&apos;, 数字无需加引号
+SELECT * FROM Websites WHERE alexa &gt; 15 AND (country=&apos;CN&apos; OR country=&apos;USA&apos;);
+</code></pre><p>WHERE子句中的运算符</p>
+<p><img src="/2019/03/21/SQL相关/3.png" alt></p>
+<h2 id="ORDER-BY-amp-amp-DESC"><a href="#ORDER-BY-amp-amp-DESC" class="headerlink" title="ORDER BY  &amp;&amp; DESC"></a>ORDER BY  &amp;&amp; DESC</h2><p>ORDER BY 关键字用于<strong>对结果集进行排序</strong>。<br>ORDER BY 关键字默认按照升序对记录进行排序。如果需要按照<strong>降序</strong>对记录进行排序，您可以使用 <strong>DESC 关键字</strong>。</p>
+<pre><code>语法：SELECT column_name,column_name
+     FROM table_name
+     ORDER BY column_name,column_name ASC|DESC;        // 默认升序，ASC可省略
+</code></pre><h2 id="INSERT-INTO"><a href="#INSERT-INTO" class="headerlink" title="INSERT INTO"></a>INSERT INTO</h2><p>第一种形式无需指定要插入数据的列名，只需提供被插入的值即可：</p>
+<pre><code>语法：INSERT INTO table_name VALUES (value1,value2,value3,...);
+</code></pre><p>第二种形式需要指定列名及被插入的值：</p>
+<pre><code>语法：INSERT INTO table_name (column1,column2,column3,...) VALUES (value1,value2,value3,...);        //未指定的字段的值为默认值
+INSERT INTO Websites (name, url, country) VALUES (&apos;stackoverflow&apos;, &apos;http://stackoverflow.com/&apos;, &apos;IND&apos;);
+</code></pre><h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><pre><code>语法：UPDATE table_name
+     SET column1=value1,column2=value2,...
+     WHERE some_column=some_value;
+
+UPDATE Websites SET alexa=&apos;5000&apos;, country=&apos;USA&apos; WHERE name=&apos;菜鸟教程&apos;;
+</code></pre><p>请注意 SQL UPDATE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要更新。如果您省略了 WHERE 子句，所有的记录都将被更新！</p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><pre><code>语法：DELETE FROM table_name
+     WHERE some_column=some_value;
+
+DELETE FROM Websites WHERE name=&apos;百度&apos; AND country=&apos;CN&apos;;
+</code></pre><p><strong>删除所有数据</strong>：您可以在不删除表的情况下，删除表中所有的行。这意味着表结构、属性、索引将保持不变：</p>
+<pre><code>DELETE FROM table_name;
+DELETE * FROM table_name;
+</code></pre>
       
     </div>
     
@@ -445,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -463,7 +544,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -474,7 +555,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -485,7 +566,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -508,6 +589,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#放在最前面的常用语法——增删改查"><span class="nav-number">1.</span> <span class="nav-text">放在最前面的常用语法——增删改查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL-简介"><span class="nav-number">2.</span> <span class="nav-text">SQL 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库表"><span class="nav-number">2.1.</span> <span class="nav-text">数据库表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些最重要的-SQL-命令"><span class="nav-number">2.2.</span> <span class="nav-text">一些最重要的 SQL 命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL语句"><span class="nav-number">3.</span> <span class="nav-text">SQL语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT"><span class="nav-number">3.1.</span> <span class="nav-text">SELECT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHERE-AND-OR"><span class="nav-number">3.2.</span> <span class="nav-text">WHERE, AND,  OR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORDER-BY-amp-amp-DESC"><span class="nav-number">3.3.</span> <span class="nav-text">ORDER BY  &amp;&amp; DESC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT-INTO"><span class="nav-number">3.4.</span> <span class="nav-text">INSERT INTO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE"><span class="nav-number">3.5.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE"><span class="nav-number">3.6.</span> <span class="nav-text">DELETE</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
