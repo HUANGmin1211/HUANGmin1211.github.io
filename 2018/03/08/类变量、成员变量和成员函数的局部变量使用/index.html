@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="如下图，我们可以知道：  classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用； memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象；">
+<meta name="description" content="classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用； memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象；  localval3 不是成员变量，它只是成员函memfuntion()内部的局部变量；  nmval4和nmval">
 <meta name="keywords" content="Python,Python的各种变量的使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="类变量、成员变量和成员函数的局部变量使用">
 <meta property="og:url" content="http://yoursite.com/2018/03/08/类变量、成员变量和成员函数的局部变量使用/index.html">
 <meta property="og:site_name" content="米轻轻&#39;blog">
-<meta property="og:description" content="如下图，我们可以知道：  classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用； memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象；">
+<meta property="og:description" content="classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用； memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象；  localval3 不是成员变量，它只是成员函memfuntion()内部的局部变量；  nmval4和nmval">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/03/08/类变量、成员变量和成员函数的局部变量使用/1.png">
-<meta property="og:updated_time" content="2019-05-28T06:47:58.386Z">
+<meta property="og:updated_time" content="2019-05-28T07:12:23.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="类变量、成员变量和成员函数的局部变量使用">
-<meta name="twitter:description" content="如下图，我们可以知道：  classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用； memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象；">
+<meta name="twitter:description" content="classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用； memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象；  localval3 不是成员变量，它只是成员函memfuntion()内部的局部变量；  nmval4和nmval">
 <meta name="twitter:image" content="http://yoursite.com/2018/03/08/类变量、成员变量和成员函数的局部变量使用/1.png">
 
 
@@ -354,10 +354,8 @@
       
 
       
-        <p>如下图，我们可以知道： </p>
-<p>classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用；</p>
+        <p>classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用；</p>
 <p>memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象； </p>
-<a id="more"></a>
 <p>localval3 不是成员变量，它只是成员函memfuntion()内部的局部变量； </p>
 <p>nmval4和nmval5都不是成员变量，虽是以self.给出，但并没有在构造函数中进行初始化。</p>
 <p>注释的三条语句不能执行，TestClass类没有这些成员</p>
