@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据库,SQL,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="放在最前面的常用语法——增删改查SELECT column_name,column_name FROM table_name WHERE id = 1; SELECT column_name,column_name FROM table_name WHERE id in (1，2); SELECT column_name,column_name FROM table_name WHERE id b">
+<meta name="keywords" content="数据库,SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL学习总结">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/SQL相关/index.html">
+<meta property="og:site_name" content="米轻轻&#39;blog">
+<meta property="og:description" content="放在最前面的常用语法——增删改查SELECT column_name,column_name FROM table_name WHERE id = 1; SELECT column_name,column_name FROM table_name WHERE id in (1，2); SELECT column_name,column_name FROM table_name WHERE id b">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/03/01/SQL相关/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/01/SQL相关/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/01/SQL相关/3.png">
+<meta property="og:updated_time" content="2019-05-28T07:04:12.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL学习总结">
+<meta name="twitter:description" content="放在最前面的常用语法——增删改查SELECT column_name,column_name FROM table_name WHERE id = 1; SELECT column_name,column_name FROM table_name WHERE id in (1，2); SELECT column_name,column_name FROM table_name WHERE id b">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/01/SQL相关/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/01/SQL相关/">
+
+
+
+
+
+  <title>SQL学习总结 | 米轻轻'blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">米轻轻'blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/SQL相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄敏">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="米轻轻'blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL学习总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T09:43:11+08:00">
+                2018-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="放在最前面的常用语法——增删改查"><a href="#放在最前面的常用语法——增删改查" class="headerlink" title="放在最前面的常用语法——增删改查"></a>放在最前面的常用语法——增删改查</h1><pre><code>SELECT column_name,column_name FROM table_name WHERE id = 1;
+SELECT column_name,column_name FROM table_name WHERE id in (1，2);
+SELECT column_name,column_name FROM table_name WHERE id between 4 and 59;    
+
+INSERT ISQLNTO table_name (column1,column2,column3,...) VALUES (value1,value2,value3,...);
+
+UPDATE table_name  SET column1=value1,column2=value2   WHERE some_column=some_value;
+
+DELETE FROM table_name  WHERE some_column=some_value;
+</code></pre><a id="more"></a>
+<h1 id="SQL-简介"><a href="#SQL-简介" class="headerlink" title="SQL 简介"></a>SQL 简介</h1><p>SQL 是用于访问和处理数据库的标准的计算机语言</p>
+<ul>
+<li>SQL，指结构化查询语言，全称是 Structured Query Language。</li>
+<li>SQL 让您可以访问和处理数据库，在数据库上执行的大部分工作都由 SQL 语句完成。</li>
+</ul>
+<h2 id="数据库表"><a href="#数据库表" class="headerlink" title="数据库表"></a>数据库表</h2><p>一个数据库通常包含一个或多个表。每个表由一个名字标识,表包含带有数据的记录（行）。在本教程中，我们在 MySQL 的 RUNOOB 数据库中创建了 Websites 表，用于存储网站记录。我们可以通过以下命令查看 “Websites” 表的数据：<br><img src="/2018/03/01/SQL相关/1.png" alt></p>
+<ul>
+<li>use RUNOOB; 命令用于选择数据库。</li>
+<li>set names utf8; 命令用于设置使用的字符集。</li>
+<li>SELECT * FROM Websites; 从website表中选取所有记录。</li>
+<li>上面的表包含五条记录（每一条对应一个网站信息）和5个列（id、name、url、alexa 和country）。</li>
+<li>SQL 语句后面的分号:某些数据库系统要求在每条 SQL 语句的末端使用分号，分号是在数据库系统中分隔每条 SQL 语句的标准方法。</li>
+</ul>
+<h2 id="一些最重要的-SQL-命令"><a href="#一些最重要的-SQL-命令" class="headerlink" title="一些最重要的 SQL 命令"></a>一些最重要的 SQL 命令</h2><pre><code>SELECT - 从数据库中提取数据
+UPDATE - 更新数据库中的数据
+DELETE - 从数据库中删除数据
+INSERT INTO - 向数据库中插入新数据
+CREATE DATABASE - 创建新数据库
+ALTER DATABASE - 修改数据库
+CREATE TABLE - 创建新表
+ALTER TABLE - 变更（改变）数据库表
+DROP TABLE - 删除表
+CREATE INDEX - 创建索引（搜索键）
+DROP INDEX - 删除索引 
+</code></pre><h1 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h1><h2 id="SELECT"><a href="#SELECT" class="headerlink" title="SELECT"></a>SELECT</h2><p>SELECT 语句用于从数据库中选取数据。结果被存储在一个结果表中，称为结果集。</p>
+<pre><code>语法：SELECT column_name,column_name FROM table_name;
+     SELECT * FROM table_name;            // 下右
+     SELECT name,country FROM Websites;    //下左
+</code></pre><p><img src="/2018/03/01/SQL相关/2.png" alt></p>
+<p>在同一个字段中选多个值作为查询条件：</p>
+<pre><code>sql =&apos;select food from calories where id in (%d,%d)&apos; %(1,2)
+</code></pre><p><strong>SELECT DISTINCT：</strong><br>在表中，一个列可能会包含多个重复值，有时您也许希望仅仅列出不同（distinct）的值。SELECT DISTINCT 语句用于<strong>返回唯一不同的值</strong>。</p>
+<h2 id="WHERE-AND-OR"><a href="#WHERE-AND-OR" class="headerlink" title="WHERE, AND,  OR"></a>WHERE, AND,  OR</h2><p>WHERE 子句用于提取那些满足指定标准的记录。<br>AND &amp; OR 运算符用于基于一个以上的条件对记录进行过滤。</p>
+<pre><code>SELECT * FROM Websites WHERE country=&apos;CN&apos;;  //CN为文本，需加 &apos;单引号&apos;, 数字无需加引号
+SELECT * FROM Websites WHERE alexa &gt; 15 AND (country=&apos;CN&apos; OR country=&apos;USA&apos;);
+</code></pre><p>WHERE子句中的运算符</p>
+<p><img src="/2018/03/01/SQL相关/3.png" alt></p>
+<h2 id="ORDER-BY-amp-amp-DESC"><a href="#ORDER-BY-amp-amp-DESC" class="headerlink" title="ORDER BY  &amp;&amp; DESC"></a>ORDER BY  &amp;&amp; DESC</h2><p>ORDER BY 关键字用于<strong>对结果集进行排序</strong>。<br>ORDER BY 关键字默认按照升序对记录进行排序。如果需要按照<strong>降序</strong>对记录进行排序，您可以使用 <strong>DESC 关键字</strong>。</p>
+<pre><code>语法：SELECT column_name,column_name
+     FROM table_name
+     ORDER BY column_name,column_name ASC|DESC;        // 默认升序，ASC可省略
+</code></pre><h2 id="INSERT-INTO"><a href="#INSERT-INTO" class="headerlink" title="INSERT INTO"></a>INSERT INTO</h2><p>第一种形式无需指定要插入数据的列名，只需提供被插入的值即可：</p>
+<pre><code>语法：INSERT INTO table_name VALUES (value1,value2,value3,...);
+</code></pre><p>第二种形式需要指定列名及被插入的值：</p>
+<pre><code>语法：INSERT INTO table_name (column1,column2,column3,...) VALUES (value1,value2,value3,...);        //未指定的字段的值为默认值
+INSERT INTO Websites (name, url, country) VALUES (&apos;stackoverflow&apos;, &apos;http://stackoverflow.com/&apos;, &apos;IND&apos;);
+</code></pre><h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><pre><code>语法：UPDATE table_name
+     SET column1=value1,column2=value2,...
+     WHERE some_column=some_value;
+
+UPDATE Websites SET alexa=&apos;5000&apos;, country=&apos;USA&apos; WHERE name=&apos;菜鸟教程&apos;;
+</code></pre><p>请注意 SQL UPDATE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要更新。如果您省略了 WHERE 子句，所有的记录都将被更新！</p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><pre><code>语法：DELETE FROM table_name
+     WHERE some_column=some_value;
+
+DELETE FROM Websites WHERE name=&apos;百度&apos; AND country=&apos;CN&apos;;
+</code></pre><p><strong>删除所有数据</strong>：您可以在不删除表的情况下，删除表中所有的行。这意味着表结构、属性、索引将保持不变：</p>
+<pre><code>DELETE FROM table_name;
+DELETE * FROM table_name;
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/SQL/" rel="tag"># SQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/08/类变量、成员变量和成员函数的局部变量使用/" rel="prev" title="类变量、成员变量和成员函数的局部变量使用">
+                类变量、成员变量和成员函数的局部变量使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/1.jpg" alt="黄敏">
+            
+              <p class="site-author-name" itemprop="name">黄敏</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#放在最前面的常用语法——增删改查"><span class="nav-number">1.</span> <span class="nav-text">放在最前面的常用语法——增删改查</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL-简介"><span class="nav-number">2.</span> <span class="nav-text">SQL 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库表"><span class="nav-number">2.1.</span> <span class="nav-text">数据库表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些最重要的-SQL-命令"><span class="nav-number">2.2.</span> <span class="nav-text">一些最重要的 SQL 命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL语句"><span class="nav-number">3.</span> <span class="nav-text">SQL语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SELECT"><span class="nav-number">3.1.</span> <span class="nav-text">SELECT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHERE-AND-OR"><span class="nav-number">3.2.</span> <span class="nav-text">WHERE, AND,  OR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORDER-BY-amp-amp-DESC"><span class="nav-number">3.3.</span> <span class="nav-text">ORDER BY  &amp;&amp; DESC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INSERT-INTO"><span class="nav-number">3.4.</span> <span class="nav-text">INSERT INTO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UPDATE"><span class="nav-number">3.5.</span> <span class="nav-text">UPDATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE"><span class="nav-number">3.6.</span> <span class="nav-text">DELETE</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">黄敏</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
