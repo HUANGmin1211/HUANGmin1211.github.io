@@ -89,21 +89,21 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java2.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java3.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java4.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java5.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java6.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java7.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java9.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/java3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/java4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/java5.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/java6.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/java7.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/java8.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/java9.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java10.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/Java11.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/11.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/2.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/3.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/4.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/5.jpg">
-<meta property="og:updated_time" content="2019-05-28T03:26:35.332Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/21/深入理解jvm/5.png">
+<meta property="og:updated_time" content="2019-05-28T03:32:51.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Jvm">
 <meta name="twitter:description" content="原创，转载请注明出处 本文主要涉及Java内存区域、虚拟机垃圾算法、虚拟垃圾收集器、JVM内存管理这些问题。这些内容主要参考周志明的《深入理解Java虚拟机》中第二章和第三章">
@@ -424,7 +424,7 @@ System.out.println(s3 == s2);// true，因为两个都是常量池中的String�
 </code></pre><h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>直接内存并不是虚拟机运行时数据区的一部分，也不是虚拟机规范中定义的内存区域，但是这部分内存也被频繁地使用。而且也可能导致OutOfMemoryError异常出现。</p>
 <p>JDK1.4中新加入的 <strong>NIO(New Input/Output) 类，引入了一种基于通道（Channel） 与缓存区（Buffer） 的 I/O 方式，</strong>它可以直接使用Native函数库直接分配堆外内存，然后通过一个存储在 Java 堆中的 DirectByteBuffer 对象作为这块内存的引用进行操作。这样就能在一些场景中显著提高性能，因为<strong>避免了在 Java 堆和 Native 堆之间来回复制数据</strong>。</p>
 <p>本机直接内存的分配不会收到 Java 堆的限制，但是，既然是内存就会受到本机总内存大小以及处理器寻址空间的限制。</p>
-<h2 id="HotSpot虚拟机对象探秘"><a href="#HotSpot虚拟机对象探秘" class="headerlink" title="HotSpot虚拟机对象探秘"></a>HotSpot虚拟机对象探秘</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p><img src="/2019/03/21/深入理解jvm/Java3.png" alt></p>
+<h2 id="HotSpot虚拟机对象探秘"><a href="#HotSpot虚拟机对象探秘" class="headerlink" title="HotSpot虚拟机对象探秘"></a>HotSpot虚拟机对象探秘</h2><h3 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h3><p><img src="/2019/03/21/深入理解jvm/java3.png" alt></p>
 <ol>
 <li><p><strong>类加载检查：</strong> 虚拟机遇到一条<strong> new 指令</strong>时，首先将去检查这个指令的参数是否能在常量池中定位到这个类的符号引用，并且检查这个符号引用代表的类是否已被加载过、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
 </li>
@@ -459,17 +459,17 @@ System.out.println(s3 == s2);// true，因为两个都是常量池中的String�
 <li>使用句柄： 如果使用句柄的话，那么Java堆中将会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息； </li>
 <li>直接指针： 如果使用直接指针访问，那么 Java 堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，而reference 中存储的直接就是对象的地址</li>
 </ul>
-<p>使用句柄来访问的最大好处是 reference 中存储的是稳定的句柄地址，在对象被移动时只会改变句柄中的实例数据指针，而 reference 本身不需要修改。使用直接指针访问方式最大的好处就是速度快，它节省了一次指针定位的时间开销。<br><img src="/2019/03/21/深入理解jvm/Java4.png" alt><br><img src="/2019/03/21/深入理解jvm/Java5.png" alt></p>
+<p>使用句柄来访问的最大好处是 reference 中存储的是稳定的句柄地址，在对象被移动时只会改变句柄中的实例数据指针，而 reference 本身不需要修改。使用直接指针访问方式最大的好处就是速度快，它节省了一次指针定位的时间开销。<br><img src="/2019/03/21/深入理解jvm/java4.png" alt><br><img src="/2019/03/21/深入理解jvm/java5.png" alt></p>
 <h2 id="重点内容补充——8种基本类型的包装类和常量池"><a href="#重点内容补充——8种基本类型的包装类和常量池" class="headerlink" title="重点内容补充——8种基本类型的包装类和常量池"></a>重点内容补充——8种基本类型的包装类和常量池</h2><p>Java 基本类型的包装类的大部分都实现了常量池技术，即Byte、Short、Integer、Long、 Character、Boolean；<strong>这5种包装类默认创建了数值[-128，127]的相应类型的缓存数据，但是超出此范围仍然会去创建新的对象。例如Integer i1=40；Java 在编译的时候会直接将代码封装成Integer i1=Integer.valueOf(40); </strong>从而使用常量池中的对象。</p>
 <p>两种浮点数类型的包装类 Float,Double 并没有实现常量池技术。</p>
-<h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><p><img src="/2019/03/21/深入理解jvm/Java6.jpg" alt></p>
+<h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><p><img src="/2019/03/21/深入理解jvm/java6.png" alt></p>
 <p>程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，随线程而灭，因此他们不需要过多考虑回收的问题。而对于Java堆和方法区，一个接口中的多个实现类需要的内存可能不一样，一个方法中的多个分支需要的内存也不一样，我们只有在程序处于运行期间时才能知道会创建哪些对象，因此这部分内存的分配和回收都是动态的。</p>
 <h2 id="对象已死吗（介绍两种判断对象是否死亡的方法）"><a href="#对象已死吗（介绍两种判断对象是否死亡的方法）" class="headerlink" title="对象已死吗（介绍两种判断对象是否死亡的方法）"></a>对象已死吗（介绍两种判断对象是否死亡的方法）</h2><p>堆中几乎放着所有的对象实例，对堆垃圾回收前的第一步就是要判断哪些对象已经死亡（即不能再被任何途径使用的对象）。</p>
 <h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><p>给对象中添加一个<strong>引用计数器</strong>，每当有一个地方引用它，计数器就加1；当引用失效，计数器就减1；任何时候计数器为0的对象就是不可能再被使用的。<br>这个方法实现简单，效率高，但是目前主流的虚拟机中并没有选择这个算法来管理内存，其最主要的原因是它<strong>很难解决对象之间相互循环引用的问题</strong>。 所谓对象之间的相互引用问题，如下面代码所示：除了对象objA 和 objB 相互引用着对方之外，这两个对象之间再无任何引用。但是他们因为互相引用对方，导致它们的引用计数器都不为0，于是引用计数算法无法通知 GC 回收器回收他们。</p>
 <pre><code>objA.instance = objB;
 objB.instance = objA;
 </code></pre><h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><p>这个算法的基本思想就是通过一系列的称为 “GC Roots” 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的，会被判定为是可回收的对象。</p>
-<p><img src="/2019/03/21/深入理解jvm/Java7.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/java7.png" alt></p>
 <p>Java语言中可作为GC Roots的对象包括下面几种：</p>
 <ul>
 <li>虚拟机栈（栈帧中的本地变量表）中引用的对象；</li>
@@ -512,13 +512,13 @@ protected void finalize() throws Throwable {
 <blockquote>
 <p>空间碎片太多可能会导致以后程序运行过程中需要分配较大对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</p>
 </blockquote>
-<p><img src="/2019/03/21/深入理解jvm/Java9.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/java8.png" alt></p>
 <h3 id="复制算法——新生代"><a href="#复制算法——新生代" class="headerlink" title="复制算法——新生代"></a>复制算法——新生代</h3><p>为了解决效率问题，“复制”收集算法出现了。<strong>它可以将内存分为大小相同的两块，每次使用其中的一块</strong>。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。这样就使每次的内存回收都是对内存区间的一半进行回收，虽然不会产生内存碎片，但是将<strong>内存容量变为了原来的一半</strong>，造成内存空间的浪费。</p>
-<p><img src="/2019/03/21/深入理解jvm/Java10.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/java9.png" alt></p>
 <p>新生代中的对象98%是朝生夕死的，所以并不需要按照1：1的比例来划分内存空间，而是将内存分为<strong>一块较大的Eden空间和两块较小的Survivor空间，每次使用Eden和其中的一块Survivor</strong>（两个Survivor轮换着使用）。当回收时，将Eden和Survivor中还存活着的兑现个一次性地拷贝到另外一块Survivor空间上，最后清理掉Eden和刚才用过的Survivor的空间。HotSpot虚拟机默认Eden和Survivor的大小比例是8:1，也就是每次新生代中可用内存空间为整个新生代容量的90%，<strong>只有10%的内存是会被浪费的。</strong></p>
 <p>但是我们没办法保证每次回收都只有不多于10%的对象存活。当另一块Servivor空间没有足够空间存放上一次新生代收集下来的存活对象时，这些对象将直接通过<strong>分配担保机制进入老年代</strong>。</p>
 <h3 id="标记-整理算法——老年代"><a href="#标记-整理算法——老年代" class="headerlink" title="标记-整理算法——老年代"></a>标记-整理算法——老年代</h3><p>老年代对象的存活率较高，若使用复制算法，需要进行较多的复制操作，降低效率。因此根据老年代的特点特出的一种标记算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存。</p>
-<p><img src="/2019/03/21/深入理解jvm/Java11.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/Java10.jpg" alt></p>
 <h3 id="分代收集算法（HotSpot为什么要分为新生代和老年代？）"><a href="#分代收集算法（HotSpot为什么要分为新生代和老年代？）" class="headerlink" title="分代收集算法（HotSpot为什么要分为新生代和老年代？）"></a>分代收集算法（HotSpot为什么要分为新生代和老年代？）</h3><p>当前虚拟机的垃圾收集都采用分代收集算法，这种算法没有什么新的思想，只是根据对象存活周期的不同将内存分为几块。<strong>一般将java堆分为新生代和老年代，这样我们就可以根据各个年代的特点选择合适的垃圾收集算法。比如在新生代中，每次收集都会有大量对象死去，所以可以选择复制算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</strong></p>
 <h2 id="HotSpot的算法实现"><a href="#HotSpot的算法实现" class="headerlink" title="HotSpot的算法实现"></a>HotSpot的算法实现</h2><h3 id="枚举根节点"><a href="#枚举根节点" class="headerlink" title="枚举根节点"></a>枚举根节点</h3><p>从可达性分析中从GC Roots节点找引用链这个操作为例，如果要逐个检查里面的引用，必然消耗很多时间</p>
 <p>可达性分析对执行时间的敏感还体现在<strong>GC停顿</strong>上，因为<strong>这项分析工作必须在一个能确保一致性的快照中进行</strong>–这里”一致性“的意思是指整个分析期间整个执行系统看起来就像被冻结在某个时间点，不可以出现分析过程中对象引用关系还在不断变化的情况，该点不满足的话分析结果准确性就无法得到保证。这点是导致<strong>GC进行时必须停顿所有Java执行线程</strong>（Sun公司将这件事情称为”Stop The World“）的一个重要原因。</p>
@@ -528,7 +528,7 @@ protected void finalize() throws Throwable {
 <p><strong>主动式中断</strong>：当GC需要中断线程的时候，不直接操作线程，而是在安全点处设置一个标志位，各个线程执行时会主动轮询这个标志位。当发现标志位改变到表示需要枚举根节点时，就主动挂起。与之相对的时<strong>抢先式中断</strong>（几乎被废弃）：在GC发生时，首先把所有线程全部中断，如果发现有线程中段的地方不在安全点上，就回复线程，让他自己跑到安全点上。</p>
 <h3 id="安全区域"><a href="#安全区域" class="headerlink" title="安全区域"></a>安全区域</h3><p>安全点机制保证了程序执行的时候，在不太长的时间就会遇到可进入GC的安全点。但是如果线程处于sleep状态或者blocked状态的时候，这时线程无法响应jvm的中断请求，就需要安全区域。</p>
 <p><strong>安全区域是指在一段代码片段中，引用关系不会发生变化，在该区域的任何地方发生GC都是安全的。</strong>当代码执行到安全区域时，首先标示自己已经进入了安全区域，那样如果在这段时间里jvm发起GC，就不用管标示自己在安全区域的那些线程了，在线程离开安全区域时，会检查系统是否正在执行GC，如果是那么就等到GC完成后再离开安全区域。</p>
-<h2 id="垃圾收集器（常见的垃圾收集器有哪些）"><a href="#垃圾收集器（常见的垃圾收集器有哪些）" class="headerlink" title="垃圾收集器（常见的垃圾收集器有哪些）"></a>垃圾收集器（常见的垃圾收集器有哪些）</h2><p>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现<br><img src="/2019/03/21/深入理解jvm/11.jpg" alt></p>
+<h2 id="垃圾收集器（常见的垃圾收集器有哪些）"><a href="#垃圾收集器（常见的垃圾收集器有哪些）" class="headerlink" title="垃圾收集器（常见的垃圾收集器有哪些）"></a>垃圾收集器（常见的垃圾收集器有哪些）</h2><p>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现<br><img src="/2019/03/21/深入理解jvm/11.png" alt></p>
 <h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><p>Serial（串行）收集器收集器是最基本、历史最悠久的垃圾收集器了。大家看名字就知道这个收集器是一个单线程收集器了。它的 “单线程” 的意义不仅仅意味着它只会使用一条垃圾收集线程去完成垃圾收集工作，更重要的是它在进行垃圾收集工作的时候必须暂停其他所有的工作线程（ “<strong>Stop The World</strong>“ ），直到它收集结束。</p>
 <p>优点：<strong>简单而高效（与其他收集器的单线程相比）</strong>。Serial收集器由于没有线程交互的开销，自然可以获得很高的单线程收集效率。</p>
 <h3 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h3><p>ParNew收集器其实就是<strong>Serial收集器的多线程版本</strong>，除了使用<strong>多线程</strong>进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和Serial收集器完全一样。在单CPU的环境中，ParNew的GC效果绝对不会比Serial效果好，但是随着CPU数量的增加，它在GC时可以有效利用系统资源。<br><strong>并行和并发</strong>概念补充：</p>
@@ -552,7 +552,7 @@ protected void finalize() throws Throwable {
 <li><strong>重新标记：</strong> 重新标记阶段就是为了<strong>修正并发标记期间因为用户程序继续运行而导致标记产生变动的那一部分对象的标记记录</strong>，这个阶段的停顿时间一般会比初始标记阶段的时间稍长，远远比并发标记阶段时间短</li>
 <li><strong>并发清除：</strong> 开启用户线程，同时GC线程开始对为标记的区域做清扫。</li>
 </ul>
-<p><img src="/2019/03/21/深入理解jvm/1.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/1.png" alt></p>
 <p>主要优点：并发收集、低停顿。但是它有下面三个明显的缺点：</p>
 <ul>
 <li><strong>对CPU资源敏感，吞吐量低；面向并发设计的程序都会对CPU资源比较敏感。</strong>在并发阶段，它虽然不会导致用户线程停顿，但是会因为占用了一部分线程（或者说CPU）资源而导致应用程序变慢，总吞吐量会降低。</li>
@@ -566,7 +566,7 @@ protected void finalize() throws Throwable {
 <li><strong>空间整合：</strong>与CMS的“标记-清理”算法不同，G1<strong>从整体来看是基于“标记-整理”算法实现的收集器；从局部上（两个Region之间）来看是基于“复制”算法实现的。不会产生内存碎片。</strong></li>
 <li><strong>可预测的停顿：</strong>这是G1相对于CMS的另一个大优势，降低停顿时间是G1 和 CMS 共同的关注点，但G1 除了追求低停顿外，还能<strong>建立可预测的停顿时间模型</strong>，能让使用者明确指定在一个长度为M毫秒的时间片段内。</li>
 </ul>
-<p><img src="/2019/03/21/深入理解jvm/2.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/2.png" alt></p>
 <p>G1收集器的运作大致分为以下几个步骤：</p>
 <ul>
 <li><strong>初始标记阶段：</strong>仅仅只是标记一下GC Roots能直接关联到的对象，STP但是耗时短；</li>
@@ -592,7 +592,7 @@ protected void finalize() throws Throwable {
 <li><strong>空间分配担保失败：</strong>使用复制算法的 Minor GC 需要老年代的内存空间作担保（防止survivor空间不足），如果担保失败会执行一次 Full GC。</li>
 <li><strong>Concurrent Mode Failure</strong>：执行 CMS GC 的过程中同时有对象要放入老年代，而此时老年代空间不足（可能是 GC 过程中浮动垃圾过多导致暂时性的空间不足），便会报 Concurrent Mode Failure 错误，并触发 Full GC。</li>
 </ul>
-<h1 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h1><h2 id="类的加载时机"><a href="#类的加载时机" class="headerlink" title="类的加载时机"></a>类的加载时机</h2><p><img src="/2019/03/21/深入理解jvm/3.jpg" alt></p>
+<h1 id="虚拟机类加载机制"><a href="#虚拟机类加载机制" class="headerlink" title="虚拟机类加载机制"></a>虚拟机类加载机制</h1><h2 id="类的加载时机"><a href="#类的加载时机" class="headerlink" title="类的加载时机"></a>类的加载时机</h2><p><img src="/2019/03/21/深入理解jvm/3.png" alt></p>
 <p>虚拟机规范则是严格规定了有且只有5种情况必须立即对类进行“初始化”（而加载、验证、准备自然需要在此之前开始）：</p>
 <ol>
 <li><strong>遇到new</strong>、getstatic、putstatic或invokestatic这4条字节码指令时，如果类没有进行过初始化，则需要先触发其初始化。最常见的生成这 4 条指令的场景是：使用 new 关键字实例化对象的时候；读取或设置一个类的静态字段（被 final 修饰、已在编译期把结果放入常量池的静态字段除外）的时候；以及调用一个类的静态方法的时候。<br>使用</li>
@@ -652,12 +652,12 @@ static int value = 123; //初始值为默认值0，赋值123的动作在初始�
 <li><strong>扩展类加载器</strong>（Extension ClassLoader）这个类加载器是由 ExtClassLoader（sun.misc.Launcher$ExtClassLoader）实现的。它负责将 &lt;JAVA_HOME&gt;/lib/ext 或者被 java.ext.dir 系统变量所指定路径中的所有类库加载到内存中，<strong>开发者可以直接使用扩展类加载器。</strong></li>
 <li><strong>应用程序类加载器</strong>（Application ClassLoader）这个类加载器是由 AppClassLoader（sun.misc.Launcher$AppClassLoader）实现的。由于这个类加载器是 ClassLoader 中的 getSystemClassLoader() 方法的返回值，<strong>因此一般称为系统类加载器</strong>。它负责加载<strong>用户类路径（ClassPath）上所指定的类库</strong>，开发者可以直接使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是<strong>程序中默认的类加载器。</strong><h3 id="双亲委派模型（什么是双亲委派模型）"><a href="#双亲委派模型（什么是双亲委派模型）" class="headerlink" title="双亲委派模型（什么是双亲委派模型）"></a>双亲委派模型（什么是双亲委派模型）</h3>我们的应用程序是由三种类加载器互相配合从而实现类加载，除此之外还可以加入自己定义的类加载器。</li>
 </ul>
-<p><img src="/2019/03/21/深入理解jvm/4.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/4.png" alt></p>
 <p>上图所示的类加载器之间的这种层次关系称为类加载器的双亲委派模型。<strong>该模型要求除了顶层的启动类加载器外，其它的类加载器都要有自己的父类加载器。</strong>类加载器之间的父子关系一般通过组合关系（Composition）来实现，而不是继承关系（Inheritance）。</p>
 <p><strong>工作过程：</strong>一个类加载器首先先检查类是否已经加载过，如果没有，则将类加载请求转发到父类加载器，每一个层次的类加载器都是如此。因此所有的加载请求最终都应该传送到顶层的启动类加载器中。只有当父类加载器加载失败（此时抛出 ClassNotFoundException异常），子类才尝试自己加载。</p>
 <p><strong>双亲委派模型的好处：</strong>使得 Java 类随着它的类加载器一起具有一种带有优先级的层次关系，从而使得<strong>基础类得到统一。</strong>例如java.lang.Object存放在rt.jar中，无论哪个类需要加载这个类，最终都是分配给处于模型最顶端的启动类加载器进行加载，因此Object类在程序的各种类加载器环境中都是同一个类。否则若由各个类加载器自行加载的话，系统中将出现多个不同的Object类。</p>
 <h1 id="类文件结构-补充章节"><a href="#类文件结构-补充章节" class="headerlink" title="类文件结构(补充章节)"></a>类文件结构(补充章节)</h1><h1 id="无关性"><a href="#无关性" class="headerlink" title="无关性"></a>无关性</h1><p>各种不同平台的虚拟机与所有平台都统一<strong>使用字节码的程序存储格式是构成Java平台无关性的基石</strong>，即“一次编译，到处运行”。而Java虚拟机不和包括Java在内的任何语言绑定，它只与“Class文件”这种特定的二进制文件格式所关联，使<strong>虚拟机实现了语言无关性</strong>。</p>
-<p><img src="/2019/03/21/深入理解jvm/5.jpg" alt></p>
+<p><img src="/2019/03/21/深入理解jvm/5.png" alt></p>
 <h2 id="Class类文件的结构"><a href="#Class类文件的结构" class="headerlink" title="Class类文件的结构"></a>Class类文件的结构</h2><blockquote>
 <p>简单介绍一下Class类文件结构（常量池主要存放的是那两大常量？Class文件的继承关系是如何确定的？字段表、方法表、属性表主要包含那些信息？）</p>
 </blockquote>
