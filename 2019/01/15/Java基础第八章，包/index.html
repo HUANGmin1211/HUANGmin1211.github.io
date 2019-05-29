@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Java,毕向东,面向对象,">
 
 
 
@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="米轻轻&#39;blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="原创，转载请注明出处 包机制为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理 作用：对类文件进行管理；给类文件提供了名称空间（路径） 定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行 总结  包与包之间的类在访问时，被访问的类以及成员都必须public修饰 被">
+<meta name="keywords" content="Java,毕向东,面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础第八章，包">
+<meta property="og:url" content="http://yoursite.com/2019/01/15/Java基础第八章，包/index.html">
 <meta property="og:site_name" content="米轻轻&#39;blog">
+<meta property="og:description" content="原创，转载请注明出处 包机制为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理 作用：对类文件进行管理；给类文件提供了名称空间（路径） 定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行 总结  包与包之间的类在访问时，被访问的类以及成员都必须public修饰 被">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/Java基础第八章，包/8包的继承.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/Java基础第八章，包/8权限总结.png">
+<meta property="og:updated_time" content="2019-05-29T00:25:53.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="米轻轻&#39;blog">
+<meta name="twitter:title" content="Java基础第八章，包">
+<meta name="twitter:description" content="原创，转载请注明出处 包机制为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理 作用：对类文件进行管理；给类文件提供了名称空间（路径） 定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行 总结  包与包之间的类在访问时，被访问的类以及成员都必须public修饰 被">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/15/Java基础第八章，包/8包的继承.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/15/Java基础第八章，包/">
 
 
 
 
 
-  <title>米轻轻'blog</title>
+  <title>Java基础第八章，包 | 米轻轻'blog</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,9 +251,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -259,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/Letex基础用法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/15/Java基础第八章，包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄敏">
@@ -276,9 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/03/Letex基础用法/" itemprop="url">Letex基础用法</a></h1>
+          <h1 class="post-title" itemprop="name headline">Java基础第八章，包</h1>
         
 
         <div class="post-meta">
@@ -290,8 +295,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-03T14:49:25+08:00">
-                2018-05-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T08:21:44+08:00">
+                2019-01-15
               </time>
             
 
@@ -313,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/写论文/" itemprop="url" rel="index">
-                    <span itemprop="name">写论文</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -350,312 +355,26 @@
       
 
       
-        
-          <p>原创，转载请注明出处</p>
-<h2 id="latex中如何输入下划线"><a href="#latex中如何输入下划线" class="headerlink" title="latex中如何输入下划线"></a>latex中如何输入下划线</h2><p>默认情况下，latex会将下划线 “_“ 解释为数学模式中的下标表示的一部分，这种处理很多情况下是非常不爽的，比如代码中的下划线变量：<br>host_name之类的。虽然可以用“host_name”之类的方法解决，但不易读。 </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/03/Letex基础用法/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/08/类变量、成员变量和成员函数的局部变量使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="黄敏">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="米轻轻'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/08/类变量、成员变量和成员函数的局部变量使用/" itemprop="url">类变量、成员变量和成员函数的局部变量使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-08T14:44:48+08:00">
-                2018-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>classval1是类变量，可以由类名TestClass直接调用，也可以有对象inst来调用；</p>
-<p>memval2是成员变量，因为它是在类的构造函数内以self.开头来定义的。可以由类的对象来调用，这里可以看出成员变量一定是以self.的形式给出的，因为self的含义就是代表实例对象； </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/08/类变量、成员变量和成员函数的局部变量使用/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/01/SQL相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="黄敏">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/1.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="米轻轻'blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/01/SQL相关/" itemprop="url">SQL学习总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-01T09:43:11+08:00">
-                2018-03-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="放在最前面的常用语法——增删改查"><a href="#放在最前面的常用语法——增删改查" class="headerlink" title="放在最前面的常用语法——增删改查"></a>放在最前面的常用语法——增删改查</h1><pre><code>SELECT column_name,column_name FROM table_name WHERE id = 1;
-SELECT column_name,column_name FROM table_name WHERE id in (1，2);
+        <p>原创，转载请注明出处</p>
+<h1 id="包机制"><a href="#包机制" class="headerlink" title="包机制"></a>包机制</h1><p>为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理</p>
+<p>作用：对类文件进行管理；给类文件提供了名称空间（路径）</p>
+<p>定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行</p>
+<p>总结</p>
+<ul>
+<li>包与包之间的类在访问时，被访问的类以及成员都必须public修饰</li>
+<li>被public修饰的类或者接口，所属的java文件名必须和类名或者接口名一只</li>
+<li>包与包之间继承，父类可以给其他包中的额子类提供一个特殊的权限 protected，只有继承为子类后，就可以访问的权限</li>
+<li><img src="/2019/01/15/Java基础第八章，包/8包的继承.png" alt></li>
+</ul>
+<h1 id="权限总结"><a href="#权限总结" class="headerlink" title="权限总结"></a>权限总结</h1><p><img src="/2019/01/15/Java基础第八章，包/8权限总结.png" alt><br>包与包之间访问只有两种权限可以用，public protected（该权限只能给不同包中的子类使用）</p>
+<h1 id="import"><a href="#import" class="headerlink" title="import"></a>import</h1><p>引入：【包名.子包名.类名】的出现导致类的名称过长，书写不方便。可以通过import解决<br>使用：import  包名.类名，将包中的类导入进来；import 包名.<em>，将包中的所有的类导入进来<br>import导入的是包中的类，不会导入包中的包里面的类<br>作用：简化类名书写，省略包名<br>特殊情况<br>    packa\packaa\DemoAA.class，packa\DemoA.class。那么使用import packa.</em>，只会导入packa中的类，不会导入其子包packaa中的类。如果要使用DemoAA，需要import packa.packaa.*。<br>    不同包中存在相同名称的类，使用该类时必须使用包名</p>
+<h1 id="jar包"><a href="#jar包" class="headerlink" title="jar包"></a>jar包</h1><p>Java中的压缩包</p>
+<p>方便项目的携带，使用时可以直接将jar导入到classpath路径中即可<br>jar包里面是class文件，使用者需要配合API使用，我也可以把我自己写的类打包成jar包给别人使用，当然也要配合API<br>java是开源指的是开放源代码，他给你提供src.rar压缩包，但是这里面都是源代码文件，即.java文件<br>操作</p>
+<pre><code>创建jar包：jar  -cvf  mypack.jar  packa packb
+查看jar包：jar  -tvf  mypack.jar   [&gt;定向文件]
+解压缩：jar  -xvf  mypack.jar
+自定义jar包的清单文件：jar –cvfm  mypack.jar  mf.txt  packa packb
 </code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/01/SQL相关/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -670,14 +389,44 @@ SELECT column_name,column_name FROM table_name WHERE id in (1，2);
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/毕向东/" rel="tag"># 毕向东</a>
+          
+            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/12/Java基础第七章，异常/" rel="next" title="Java基础第七章，异常">
+                <i class="fa fa-chevron-left"></i> Java基础第七章，异常
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/28/java多线程/" rel="prev" title="Java多线程">
+                Java多线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -687,14 +436,11 @@ SELECT column_name,column_name FROM table_name WHERE id in (1，2);
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -702,6 +448,10 @@ SELECT column_name,column_name FROM table_name WHERE id in (1，2);
 
 
           
+
+  
+
+
 
         </div>
         
@@ -722,8 +472,17 @@ SELECT column_name,column_name FROM table_name WHERE id in (1，2);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -785,6 +544,22 @@ SELECT column_name,column_name FROM table_name WHERE id in (1，2);
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包机制"><span class="nav-number">1.</span> <span class="nav-text">包机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限总结"><span class="nav-number">2.</span> <span class="nav-text">权限总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import"><span class="nav-number">3.</span> <span class="nav-text">import</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jar包"><span class="nav-number">4.</span> <span class="nav-text">jar包</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -925,6 +700,10 @@ SELECT column_name,column_name FROM table_name WHERE id in (1，2);
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
