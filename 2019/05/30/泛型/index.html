@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="转载自 腾讯云 1. Java中的泛型是什么 ? 使用泛型的好处是什么?在集合中存储对象并在使用前进行类型转换非常不方便，泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。 2. Java的泛型是如何工作的 ? 什么是类型擦除 ?泛型是通过类型擦除来实现的，编译器在编译时擦除了所有类型相关的信息，所以在">
+<meta name="description" content="转载自 腾讯云 1. Java中的泛型是什么 ? 使用泛型的好处是什么?在集合中存储对象并在使用前进行类型转换非常不方便，泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。">
 <meta name="keywords" content="Java,泛型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泛型">
 <meta property="og:url" content="http://yoursite.com/2019/05/30/泛型/index.html">
 <meta property="og:site_name" content="米轻轻&#39;blog">
-<meta property="og:description" content="转载自 腾讯云 1. Java中的泛型是什么 ? 使用泛型的好处是什么?在集合中存储对象并在使用前进行类型转换非常不方便，泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。 2. Java的泛型是如何工作的 ? 什么是类型擦除 ?泛型是通过类型擦除来实现的，编译器在编译时擦除了所有类型相关的信息，所以在">
+<meta property="og:description" content="转载自 腾讯云 1. Java中的泛型是什么 ? 使用泛型的好处是什么?在集合中存储对象并在使用前进行类型转换非常不方便，泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-30T14:35:51.554Z">
+<meta property="og:updated_time" content="2019-05-31T01:49:57.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛型">
-<meta name="twitter:description" content="转载自 腾讯云 1. Java中的泛型是什么 ? 使用泛型的好处是什么?在集合中存储对象并在使用前进行类型转换非常不方便，泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。 2. Java的泛型是如何工作的 ? 什么是类型擦除 ?泛型是通过类型擦除来实现的，编译器在编译时擦除了所有类型相关的信息，所以在">
+<meta name="twitter:description" content="转载自 腾讯云 1. Java中的泛型是什么 ? 使用泛型的好处是什么?在集合中存储对象并在使用前进行类型转换非常不方便，泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。">
 
 
 
@@ -334,11 +334,6 @@
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
-            </span>
-          
 
           
 
@@ -359,6 +354,7 @@
       
         <p>转载自 <a href="https://cloud.tencent.com/developer/article/1033693" target="_blank" rel="noopener">腾讯云</a></p>
 <h1 id="1-Java中的泛型是什么-使用泛型的好处是什么"><a href="#1-Java中的泛型是什么-使用泛型的好处是什么" class="headerlink" title="1. Java中的泛型是什么 ? 使用泛型的好处是什么?"></a>1. Java中的泛型是什么 ? 使用泛型的好处是什么?</h1><p>在集合中存储对象并在使用前进行类型转换非常不方便，泛型防止了那种情况的发生。它提供了编译期的类型安全，确保你只能把正确类型的对象放入集合中，避免了在运行时出现ClassCastException。</p>
+<a id="more"></a>
 <h1 id="2-Java的泛型是如何工作的-什么是类型擦除"><a href="#2-Java的泛型是如何工作的-什么是类型擦除" class="headerlink" title="2. Java的泛型是如何工作的 ? 什么是类型擦除 ?"></a>2. Java的泛型是如何工作的 ? 什么是类型擦除 ?</h1><p>泛型是通过类型擦除来实现的，编译器在编译时擦除了所有类型相关的信息，所以在运行时不存在任何类型相关的信息。例如List<string>在运行时仅用一个List来表示。这样做的目的，是确保能和Java 5之前的版本开发二进制类库进行兼容。你无法在运行时访问到类型参数，因为编译器已经把泛型类型转换成了原始类型。</string></p>
 <h1 id="3-什么是泛型中的限定通配符和非限定通配符"><a href="#3-什么是泛型中的限定通配符和非限定通配符" class="headerlink" title="3. 什么是泛型中的限定通配符和非限定通配符 ?"></a>3. 什么是泛型中的限定通配符和非限定通配符 ?</h1><p>这是另一个非常流行的Java泛型面试题。限定通配符对类型进行了限制。有两种限定通配符，一种是&lt;? extends T&gt;它通过确保类型必须是T的子类来设定类型的上界，另一种是&lt;? super T&gt;它通过确保类型必须是T的父类来设定类型的下界。泛型类型必须用限定内的类型来进行初始化，否则会导致编译错误。另一方面&lt;?&gt;表示了非限定通配符，因为&lt;?&gt;可以用任意类型来替代。更多信息请参阅我的文章泛型中限定通配符和非限定通配符之间的区别。</p>
 <h1 id="4-List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别"><a href="#4-List-lt-extends-T-gt-和List-lt-super-T-gt-之间有什么区别" class="headerlink" title="4. List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?"></a>4. List&lt;? extends T&gt;和List &lt;? super T&gt;之间有什么区别 ?</h1><p>这和上一个面试题有联系，有时面试官会用这个问题来评估你对泛型的理解，而不是直接问你什么是限定通配符和非限定通配符。这两个List的声明都是限定通配符的例子，List&lt;? extends T&gt;可以接受任何继承自T的类型的List，而List&lt;? super T&gt;可以接受任何T的父类构成的List。例如List&lt;? extends Number&gt;可以接受List<integer>或List<float>。在本段出现的连接中可以找到更多信息。</float></integer></p>
@@ -591,29 +587,16 @@
   <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+
+
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i> 总访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
-    </span>
-  
-</div>
-
 
 
 
