@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java,毕向东,面向对象,">
+  <meta name="keywords" content="Java,异常,">
 
 
 
@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="原创，转载请注明出处 包机制为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理 作用：对类文件进行管理；给类文件提供了名称空间（路径） 定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行 总结  包与包之间的类在访问时，被访问的类以及成员都必须public修饰 被">
-<meta name="keywords" content="Java,毕向东,面向对象">
+<meta name="description" content="参考链接  1.什么是Java异常答：异常是发生在程序执行过程中阻碍程序正常执行的错误事件。比如：用户输入错误数据、硬件故障、网络阻塞等都会导致出现异常。 只要在Java语句执行中产生了异常，一个异常对象就会被创建，JRE就会试图寻找异常处理程序来处理异常。如果有合适的异常处理程序，异常对象就会被异常处理程序接管，否则，将引发运行环境异常，JRE终止程序执行。 Java异常处理框架只能处理运行时错">
+<meta name="keywords" content="Java,异常">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java基础第八章，包">
-<meta property="og:url" content="http://yoursite.com/2019/01/15/Java基础第八章，包/index.html">
+<meta property="og:title" content="异常">
+<meta property="og:url" content="http://yoursite.com/2019/05/25/异常/index.html">
 <meta property="og:site_name" content="米轻轻&#39;blog">
-<meta property="og:description" content="原创，转载请注明出处 包机制为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理 作用：对类文件进行管理；给类文件提供了名称空间（路径） 定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行 总结  包与包之间的类在访问时，被访问的类以及成员都必须public修饰 被">
+<meta property="og:description" content="参考链接  1.什么是Java异常答：异常是发生在程序执行过程中阻碍程序正常执行的错误事件。比如：用户输入错误数据、硬件故障、网络阻塞等都会导致出现异常。 只要在Java语句执行中产生了异常，一个异常对象就会被创建，JRE就会试图寻找异常处理程序来处理异常。如果有合适的异常处理程序，异常对象就会被异常处理程序接管，否则，将引发运行环境异常，JRE终止程序执行。 Java异常处理框架只能处理运行时错">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/01/15/Java基础第八章，包/8包的继承.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/15/Java基础第八章，包/8权限总结.png">
-<meta property="og:updated_time" content="2019-05-29T00:25:53.163Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/25/异常/1.png">
+<meta property="og:updated_time" content="2019-05-31T01:40:29.190Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础第八章，包">
-<meta name="twitter:description" content="原创，转载请注明出处 包机制为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理 作用：对类文件进行管理；给类文件提供了名称空间（路径） 定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行 总结  包与包之间的类在访问时，被访问的类以及成员都必须public修饰 被">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/15/Java基础第八章，包/8包的继承.png">
+<meta name="twitter:title" content="异常">
+<meta name="twitter:description" content="参考链接  1.什么是Java异常答：异常是发生在程序执行过程中阻碍程序正常执行的错误事件。比如：用户输入错误数据、硬件故障、网络阻塞等都会导致出现异常。 只要在Java语句执行中产生了异常，一个异常对象就会被创建，JRE就会试图寻找异常处理程序来处理异常。如果有合适的异常处理程序，异常对象就会被异常处理程序接管，否则，将引发运行环境异常，JRE终止程序执行。 Java异常处理框架只能处理运行时错">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/25/异常/1.png">
 
 
 
@@ -123,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/15/Java基础第八章，包/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/25/异常/">
 
 
 
 
 
-  <title>Java基础第八章，包 | 米轻轻'blog</title>
+  <title>异常 | 米轻轻'blog</title>
   
 
 
@@ -266,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/15/Java基础第八章，包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/25/异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="黄敏">
@@ -283,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java基础第八章，包</h1>
+          <h1 class="post-title" itemprop="name headline">异常</h1>
         
 
         <div class="post-meta">
@@ -295,8 +294,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-15T08:21:44+08:00">
-                2019-01-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-25T09:35:43+08:00">
+                2019-05-25
               </time>
             
 
@@ -360,26 +359,16 @@
       
 
       
-        <p>原创，转载请注明出处</p>
-<h1 id="包机制"><a href="#包机制" class="headerlink" title="包机制"></a>包机制</h1><p>为什么需要包？对于多个类为了便于管理（存在类的同名情况），Java中提供了包机制解决方案。落实到操作系统上，就是对Java的文件进行份文件夹处理</p>
-<p>作用：对类文件进行管理；给类文件提供了名称空间（路径）</p>
-<p>定义：使用关键字 package 包名; 包名中的所有字母都小写。包语句写在所有程序的第一行</p>
-<p>总结</p>
-<ul>
-<li>包与包之间的类在访问时，被访问的类以及成员都必须public修饰</li>
-<li>被public修饰的类或者接口，所属的java文件名必须和类名或者接口名一只</li>
-<li>包与包之间继承，父类可以给其他包中的额子类提供一个特殊的权限 protected，只有继承为子类后，就可以访问的权限</li>
-<li><img src="/2019/01/15/Java基础第八章，包/8包的继承.png" alt></li>
-</ul>
-<h1 id="权限总结"><a href="#权限总结" class="headerlink" title="权限总结"></a>权限总结</h1><p><img src="/2019/01/15/Java基础第八章，包/8权限总结.png" alt><br>包与包之间访问只有两种权限可以用，public protected（该权限只能给不同包中的子类使用）</p>
-<h1 id="import"><a href="#import" class="headerlink" title="import"></a>import</h1><p>引入：【包名.子包名.类名】的出现导致类的名称过长，书写不方便。可以通过import解决<br>使用：import  包名.类名，将包中的类导入进来；import 包名.<em>，将包中的所有的类导入进来<br>import导入的是包中的类，不会导入包中的包里面的类<br>作用：简化类名书写，省略包名<br>特殊情况<br>    packa\packaa\DemoAA.class，packa\DemoA.class。那么使用import packa.</em>，只会导入packa中的类，不会导入其子包packaa中的类。如果要使用DemoAA，需要import packa.packaa.*。<br>    不同包中存在相同名称的类，使用该类时必须使用包名</p>
-<h1 id="jar包"><a href="#jar包" class="headerlink" title="jar包"></a>jar包</h1><p>Java中的压缩包</p>
-<p>方便项目的携带，使用时可以直接将jar导入到classpath路径中即可<br>jar包里面是class文件，使用者需要配合API使用，我也可以把我自己写的类打包成jar包给别人使用，当然也要配合API<br>java是开源指的是开放源代码，他给你提供src.rar压缩包，但是这里面都是源代码文件，即.java文件<br>操作</p>
-<pre><code>创建jar包：jar  -cvf  mypack.jar  packa packb
-查看jar包：jar  -tvf  mypack.jar   [&gt;定向文件]
-解压缩：jar  -xvf  mypack.jar
-自定义jar包的清单文件：jar –cvfm  mypack.jar  mf.txt  packa packb
-</code></pre>
+        <p><a href="http://www.importnew.com/7383.html" target="_blank" rel="noopener">参考链接</a></p>
+<p><img src="/2019/05/25/异常/1.png" alt></p>
+<h1 id="1-什么是Java异常"><a href="#1-什么是Java异常" class="headerlink" title="1.什么是Java异常"></a>1.什么是Java异常</h1><p>答：异常是发生在程序执行过程中阻碍程序正常执行的错误事件。比如：用户输入错误数据、硬件故障、网络阻塞等都会导致出现异常。 只要在Java语句执行中产生了异常，一个异常对象就会被创建，JRE就会试图寻找异常处理程序来处理异常。如果有合适的异常处理程序，异常对象就会被异常处理程序接管，否则，将引发运行环境异常，JRE终止程序执行。 Java异常处理框架只能处理运行时错误，编译错误不在其考虑范围之内。</p>
+<h1 id="2-Java异常处理中有哪些关键字？"><a href="#2-Java异常处理中有哪些关键字？" class="headerlink" title="2.Java异常处理中有哪些关键字？"></a>2.Java异常处理中有哪些关键字？</h1><p>throw:有时我们需要显式地创建并抛出异常对象来终止程序的正常执行。throw关键字用来抛出并处理运行时异常。<br>throws:当我们抛出任何“被检查的异常(checked exception)”并不处理时，需要在方法签名中使用关键字throws来告知调用程序此方法可能会抛出的异常。调用方法可能会处理这些异常，或者同样用throws来将异常传给上一级调用方法。throws关键字后可接多个潜在异常，甚至是在main()中也可以使用throws。<br>try-catch:我们在代码中用try-catch块处理异常。当然，一个try块之后可以有多个catch子句，try-catch块也能嵌套。每个catch块必须接受一个（且仅有一个）代表异常类型的参数。<br>finally:finally块是可选的，并且只能配合try-catch一起使用。虽然异常终止了程序的执行，但是还有一些打开的资源没有被关闭，因此，我们能使用finally进行关闭。不管异常有没有出现，finally块总会被执行。</p>
+<h1 id="3-描述一下异常的层级。"><a href="#3-描述一下异常的层级。" class="headerlink" title="3.描述一下异常的层级。"></a>3.描述一下异常的层级。</h1><p>答：Java异常是层级的，并通过继承来区分不同种类的异常。<br>Throwable是所有异常的父类，它有两个直接子对象Error,Exception，其中Exception又被继续划分为“被检查的异常(checked exception)”和”运行时的异常（runtime exception,即不受检查的异常）”。 Error表示编译时和系统错误，通常不能预期和恢复，比如硬件故障、JVM崩溃、内存不足等。<br>被检查的异常（Checked exception）在程序中能预期，并要尝试修复，如FileNotFoundException。我们必须捕获此类异常，并为用户提供有用信息和合适日志来进行调试。Exception是所有被检查的异常的父类。<br>运行时异常（Runtime Exception）又称为不受检查异常，源于糟糕的编程。比如我们检索数组元素之前必须确认数组的长度，否则就可能会抛出ArrayIndexOutOfBoundException运行时异常。RuntimeException是所有运行时异常的父类。</p>
+<h1 id="4-Java异常类有哪些的重要方法？"><a href="#4-Java异常类有哪些的重要方法？" class="headerlink" title="4.Java异常类有哪些的重要方法？"></a>4.Java异常类有哪些的重要方法？</h1><p>答：Exception和它的所有子类没有提供任何特殊方法供使用，它们的所有方法都是来自其基类Throwable。<br>String getMessage():方法返回Throwable的String型信息，当异常通过构造器创建后可用。<br>String getLocalizedMessage()：此方法通过被重写来得到用本地语言表示的异常信息返回给调用程序。Throwable类通常只是用getMessage()方法来实现返回异常信息。<br>synchronized Throwable getCause():此方法返回异常产生的原因，如果不知道原因的话返回null。(原文有拼写错误 应该是if 不是id)<br>String toString():方法返回String格式的Throwable信息，此信息包括Throwable的名字和本地化信息。<br>void printStackTrace()：该方法打印栈轨迹信息到标准错误流。该方法能接受PrintStream 和PrintWriter作为参数实现重载，这样就能实现打印栈轨迹到文件或流中。</p>
+<h1 id="6-被检查的异常和不受检查的异常有什么区别？"><a href="#6-被检查的异常和不受检查的异常有什么区别？" class="headerlink" title="6.被检查的异常和不受检查的异常有什么区别？"></a>6.被检查的异常和不受检查的异常有什么区别？</h1><p>    被检查的异常应该用try-catch块代码处理，或者在main方法中用throws关键字让JRE了解程序可能抛出哪些异常。不受检查的异常在程序中不要求被处理或用throws语句告知。<br>    Exception是所有被检查异常的基类，然而，RuntimeException是所有不受检查异常的基类。<br>    被检查的异常适用于那些不是因程序引起的错误情况，比如：读取文件时文件不存在引发的FileNotFoundException。然而，不被检查的异常通常都是由于糟糕的编程引起的，比如：在对象引用时没有确保对象非空而引起的NullPointerException。</p>
+<h1 id="下面的代码存在什么问题呢？"><a href="#下面的代码存在什么问题呢？" class="headerlink" title="下面的代码存在什么问题呢？"></a>下面的代码存在什么问题呢？</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.journaldev.exceptions;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;   </span><br><span class="line"><span class="keyword">import</span> javax.xml.bind.JAXBException;   </span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestException6</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">try</span> &#123;</span><br><span class="line">             foo();</span><br><span class="line">         &#125; <span class="keyword">catch</span> (IOException | JAXBException e) &#123;</span><br><span class="line">             e = <span class="keyword">new</span> Exception(<span class="string">""</span>);  <span class="comment">// 异常值不可变</span></span><br><span class="line">             e.printStackTrace();</span><br><span class="line">         &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">             e = <span class="keyword">new</span> Exception(<span class="string">""</span>);</span><br><span class="line">             e.printStackTrace();</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> </span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> <span class="keyword">throws</span> IOException, JAXBException</span>&#123;</span><br><span class="line">               &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码不能编译，因为在多个catch子句中的异常对象是不可变的，我们不能改变其值</p>
+
       
     </div>
     
@@ -398,9 +387,7 @@
           
             <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/毕向东/" rel="tag"># 毕向东</a>
-          
-            <a href="/tags/面向对象/" rel="tag"># 面向对象</a>
+            <a href="/tags/异常/" rel="tag"># 异常</a>
           
         </div>
       
@@ -413,8 +400,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/12/Java基础第七章，异常/" rel="next" title="Java基础第七章，异常">
-                <i class="fa fa-chevron-left"></i> Java基础第七章，异常
+              <a href="/2019/03/21/深入理解jvm/" rel="next" title="深入理解Jvm">
+                <i class="fa fa-chevron-left"></i> 深入理解Jvm
               </a>
             
           </div>
@@ -423,8 +410,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/28/java多线程/" rel="prev" title="Java多线程">
-                Java多线程 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/30/泛型/" rel="prev" title="泛型">
+                泛型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -559,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包机制"><span class="nav-number">1.</span> <span class="nav-text">包机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限总结"><span class="nav-number">2.</span> <span class="nav-text">权限总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import"><span class="nav-number">3.</span> <span class="nav-text">import</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jar包"><span class="nav-number">4.</span> <span class="nav-text">jar包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-什么是Java异常"><span class="nav-number">1.</span> <span class="nav-text">1.什么是Java异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Java异常处理中有哪些关键字？"><span class="nav-number">2.</span> <span class="nav-text">2.Java异常处理中有哪些关键字？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-描述一下异常的层级。"><span class="nav-number">3.</span> <span class="nav-text">3.描述一下异常的层级。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Java异常类有哪些的重要方法？"><span class="nav-number">4.</span> <span class="nav-text">4.Java异常类有哪些的重要方法？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-被检查的异常和不受检查的异常有什么区别？"><span class="nav-number">5.</span> <span class="nav-text">6.被检查的异常和不受检查的异常有什么区别？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下面的代码存在什么问题呢？"><span class="nav-number">6.</span> <span class="nav-text">下面的代码存在什么问题呢？</span></a></li></ol></div>
             
 
           </div>
